@@ -5,6 +5,21 @@
 
 using namespace Rcpp;
 
+// Canny_Thresh
+NumericMatrix Canny_Thresh(NumericMatrix dmat, std::string bitdepth, int lowThreshold, int ratio, int kernel_size);
+RcppExport SEXP feature2_Canny_Thresh(SEXP dmatSEXP, SEXP bitdepthSEXP, SEXP lowThresholdSEXP, SEXP ratioSEXP, SEXP kernel_sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
+    Rcpp::traits::input_parameter< int >::type lowThreshold(lowThresholdSEXP);
+    Rcpp::traits::input_parameter< int >::type ratio(ratioSEXP);
+    Rcpp::traits::input_parameter< int >::type kernel_size(kernel_sizeSEXP);
+    __result = Rcpp::wrap(Canny_Thresh(dmat, bitdepth, lowThreshold, ratio, kernel_size));
+    return __result;
+END_RCPP
+}
 // testscale
 void testscale(NumericMatrix dmat, std::string bitdepth, bool printQ);
 RcppExport SEXP feature2_testscale(SEXP dmatSEXP, SEXP bitdepthSEXP, SEXP printQSEXP) {
