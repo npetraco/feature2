@@ -82,6 +82,38 @@ void scale64ToDepth(Mat &H, std::string typ) {
 
 }
 
+//---------------------------------------------------------------------
+//Replace NaNs with something in 64 and 32bitfloat Mats
+//---------------------------------------------------------------------
+template <typename T> 
+void replaceNaNs(Mat &M, T substitute) {
+
+  int nRows = M.rows;
+  int nCols = M.cols;
+
+  if (M.isContinuous())
+  {
+      nCols *= nRows;
+      nRows = 1;
+  }
+  int i,j;
+  //float* p;
+  T* p;
+  for( i = 0; i < nRows; ++i) {
+    //p = M.ptr<float>(i);
+    p = M.ptr<T>(i);
+    for ( j = 0; j < nCols; ++j) {
+      if(isnan(p[j])){
+        p[j] = substitute; 
+      }
+    }
+  }
+
+}
+
+template void replaceNaNs<float>(cv::Mat &M, float substitute); //Explicit instantiation for float
+template void replaceNaNs<double>(cv::Mat &M, double substitute); //Explicit instantiation for double
+
 //---------------------------------------------------------------------------------
 // [[Rcpp::export]]
 void testscale(NumericMatrix dmat, std::string bitdepth, bool printQ=false) {
@@ -139,35 +171,3 @@ NumericMatrix testConvert(NumericMatrix dmat, bool printQ=false) {
   return new_dmat;
   
 }
-
-//---------------------------------------------------------------------
-//Replace NaNs with something in 64 and 32bitfloat Mats
-//---------------------------------------------------------------------
-template <typename T> 
-void replaceNaNs(Mat &M, T substitute) {
-
-  int nRows = M.rows;
-  int nCols = M.cols;
-
-  if (M.isContinuous())
-  {
-      nCols *= nRows;
-      nRows = 1;
-  }
-  int i,j;
-  //float* p;
-  T* p;
-  for( i = 0; i < nRows; ++i) {
-    //p = M.ptr<float>(i);
-    p = M.ptr<T>(i);
-    for ( j = 0; j < nCols; ++j) {
-      if(isnan(p[j])){
-        p[j] = substitute; 
-      }
-    }
-  }
-
-}
-
-template void replaceNaNs<float>(cv::Mat &M, float substitute); //Explicit instantiation for float
-template void replaceNaNs<double>(cv::Mat &M, double substitute); //Explicit instantiation for double

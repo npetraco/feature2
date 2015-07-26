@@ -122,6 +122,25 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// Sobel
+NumericMatrix Sobel(NumericMatrix dmat, std::string bitdepth, int ddepth, int dx, int dy, int ksize, double scale, double delta, int borderType);
+RcppExport SEXP feature2_Sobel(SEXP dmatSEXP, SEXP bitdepthSEXP, SEXP ddepthSEXP, SEXP dxSEXP, SEXP dySEXP, SEXP ksizeSEXP, SEXP scaleSEXP, SEXP deltaSEXP, SEXP borderTypeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
+    Rcpp::traits::input_parameter< int >::type ddepth(ddepthSEXP);
+    Rcpp::traits::input_parameter< int >::type dx(dxSEXP);
+    Rcpp::traits::input_parameter< int >::type dy(dySEXP);
+    Rcpp::traits::input_parameter< int >::type ksize(ksizeSEXP);
+    Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
+    Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
+    Rcpp::traits::input_parameter< int >::type borderType(borderTypeSEXP);
+    __result = Rcpp::wrap(Sobel(dmat, bitdepth, ddepth, dx, dy, ksize, scale, delta, borderType));
+    return __result;
+END_RCPP
+}
 // WriteMat
 void WriteMat(NumericMatrix dmat, std::string bitdepth, std::string fpath);
 RcppExport SEXP feature2_WriteMat(SEXP dmatSEXP, SEXP bitdepthSEXP, SEXP fpathSEXP) {

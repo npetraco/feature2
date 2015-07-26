@@ -41,6 +41,10 @@ Resize <- function(dmat, num_rows, num_cols) {
     .Call('feature2_Resize', PACKAGE = 'feature2', dmat, num_rows, num_cols)
 }
 
+Sobel <- function(dmat, bitdepth, ddepth, dx, dy, ksize = 3L, scale = 1.0, delta = 0.0, borderType = 4L) {
+    .Call('feature2_Sobel', PACKAGE = 'feature2', dmat, bitdepth, ddepth, dx, dy, ksize, scale, delta, borderType)
+}
+
 WriteMat <- function(dmat, bitdepth, fpath) {
     invisible(.Call('feature2_WriteMat', PACKAGE = 'feature2', dmat, bitdepth, fpath))
 }
