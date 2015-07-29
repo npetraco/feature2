@@ -50,7 +50,7 @@ NumericMatrix openCVMat2NumericMatrix(Mat &odmat) {
 void scale64ToDepth(Mat &H, std::string typ) {
   
   if(H.depth() != CV_64F) {
-    abort();
+    Rcpp::stop("Input mat is not a 64-bit matrix!");
   }
   
   double mind;
