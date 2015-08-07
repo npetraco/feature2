@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
     Mat image;
     image = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);  // Read the file
     
-    namedWindow( "Display window", 0 );                // Create a window for display.
+    namedWindow( "Display window", CV_WINDOW_NORMAL ); // Create a window for display.
     Size size(c, r);                                   // The dst image size,e.g.argv[2]xargv[3]
     Mat dst;                                           // The dst image
     resize(image,dst,size);//resize image

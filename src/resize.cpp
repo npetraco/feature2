@@ -7,7 +7,7 @@ using namespace cv;
 using namespace std;
 
 // [[Rcpp::export]]
-NumericMatrix Resize(NumericMatrix dmat, uint num_rows, uint num_cols) {
+NumericMatrix Resize(NumericMatrix dmat, unsigned int num_rows, unsigned int num_cols) {
   
   Mat odmat;
   NumericMatrix2openCVMat(dmat, odmat);

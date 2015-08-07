@@ -13,6 +13,10 @@ borderTypeCode <- function(borderType) {
     .Call('feature2_borderTypeCode', PACKAGE = 'feature2', borderType)
 }
 
+Areal_CCF <- function(dmat1, dmat2, bitdepth) {
+    invisible(.Call('feature2_Areal_CCF', PACKAGE = 'feature2', dmat1, dmat2, bitdepth))
+}
+
 testscale <- function(dmat, bitdepth, printQ = FALSE) {
     invisible(.Call('feature2_testscale', PACKAGE = 'feature2', dmat, bitdepth, printQ))
 }
@@ -29,8 +33,20 @@ Display2D_openCV <- function(dmat, rowWidth, colWidth, bitdepth, file_ext, print
     invisible(.Call('feature2_Display2D_openCV', PACKAGE = 'feature2', dmat, rowWidth, colWidth, bitdepth, file_ext, printQ, exe_path))
 }
 
+Fill_Holes <- function(dmat, mask) {
+    .Call('feature2_Fill_Holes', PACKAGE = 'feature2', dmat, mask)
+}
+
 Filter2D <- function(dmat, kernel, bitdepth) {
     .Call('feature2_Filter2D', PACKAGE = 'feature2', dmat, kernel, bitdepth)
+}
+
+FindHoles <- function(dmat_mask, mode, approx_method, big_hole_tol) {
+    .Call('feature2_FindHoles', PACKAGE = 'feature2', dmat_mask, mode, approx_method, big_hole_tol)
+}
+
+GaussianBlur2D <- function(dmat, bitdepth, num_rows_kernel, num_cols_kernel, sigmaX = 0.0, sigmaY = 0.0, borderType = "default") {
+    .Call('feature2_GaussianBlur2D', PACKAGE = 'feature2', dmat, bitdepth, num_rows_kernel, num_cols_kernel, sigmaX, sigmaY, borderType)
 }
 
 numvec_to_python <- function(name, x) {

@@ -4,12 +4,15 @@
 \alias{rescale.z}
 \title{rescale.z}
 \usage{
-\method{rescale}{z}(dmat, z.bitdepth, zero.maskQ = FALSE)
+rescale.z(dmat, z.bitdepth, zero.maskQ = FALSE)
 }
 \arguments{
 \item{dmat}{A matrix of data from R}
 
-\item{z.bitdepth}{Desired bit depth. May be "8bit" or "16bit" for "unsigned" dynamic ranges of those bit depths.}
+\item{z.bitdepth}{Desired bit depth or a stated rangelength of graylevels.
+Specified bit-depths may be "8bit" or "16bit" for "unsigned" dynamic ranges of those bit depths. A range of
+graylevels is specified with a list whose first element is "custom.dynamic.range" and whoes second element
+is the number of graylevels required.}
 
 \item{zero.maskQ}{If TRUE, the smallest value of the dynamic range (0) is not used, with the intension that it is held in reserve for NaNs/NAs in the matrix.}
 }

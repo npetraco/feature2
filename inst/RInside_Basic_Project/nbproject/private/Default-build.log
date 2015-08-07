@@ -1,0 +1,519 @@
+clang++ -arch x86_64 -ftemplate-depth-256 -stdlib=libstdc++ -I/Library/Frameworks/R.framework/Resources/include -I/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include -I/Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include -mtune=native  -O3 -Wall -pedantic -Wconversion -Wall -I/usr/local/include   main.cpp  -F/Library/Frameworks/R.framework/.. -framework R  -L/Library/Frameworks/R.framework/Resources/lib -lRblas -L/Library/Frameworks/R.framework/Resources/lib -lRlapack  /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/lib/libRInside.a -o main
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:27:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/RcppCommon.h:170:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:126:17: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        switch (size - i){                          
+                     ~ ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:117:26: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+        int __trip_count = size >> 2 ;
+            ~~~~~~~~~~~~   ~~~~~^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:184:42: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( VECSXP, size ) );
+                        ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:231:42: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( STRSXP, size ) ) ;
+                        ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:258:46: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> names( Rf_allocVector( STRSXP, size ) ) ;
+                            ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:266:26: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+                SET_STRING_ELT( names, i, Rf_mkChar(buf.c_str()) ) ;
+                ~~~~~~~~~~~~~~         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:286:46: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> names( Rf_allocVector( STRSXP, size ) ) ;
+                            ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:294:26: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+                SET_STRING_ELT( names, i, Rf_mkChar(buf.c_str()) ) ;
+                ~~~~~~~~~~~~~~         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:330:42: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( VECSXP, size ) );
+                        ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:331:46: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> names( Rf_allocVector( STRSXP, size ) ) ;
+                            ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:338:22: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+                SET_VECTOR_ELT( x, i, element ) ;
+                ~~~~~~~~~~~~~~     ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:339:26: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+                SET_STRING_ELT( names, i, Rf_mkChar(buf.c_str()) ) ; 
+                ~~~~~~~~~~~~~~         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:361:42: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( STRSXP, size ) ) ;
+                        ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:362:46: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> names( Rf_allocVector( STRSXP, size ) ) ;
+                            ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:534:42: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( LGLSXP, size ) );
+                        ~~~~~~~~~~~~~~          ^~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:35:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Dimension.h:43:20: warning: implicit conversion loses integer precision: 'const size_t' (aka 'const unsigned long') to 'int' [-Wshorten-64-to-32]
+                dims[0] = n1 ;    
+                        ~ ^~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Dimension.h:46:20: warning: implicit conversion loses integer precision: 'const size_t' (aka 'const unsigned long') to 'int' [-Wshorten-64-to-32]
+                dims[0] = n1 ;
+                        ~ ^~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Dimension.h:47:20: warning: implicit conversion loses integer precision: 'const size_t' (aka 'const unsigned long') to 'int' [-Wshorten-64-to-32]
+                dims[1] = n2 ;
+                        ~ ^~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Dimension.h:50:20: warning: implicit conversion loses integer precision: 'const size_t' (aka 'const unsigned long') to 'int' [-Wshorten-64-to-32]
+                dims[0] = n1 ;
+                        ~ ^~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Dimension.h:51:20: warning: implicit conversion loses integer precision: 'const size_t' (aka 'const unsigned long') to 'int' [-Wshorten-64-to-32]
+                dims[1] = n2 ;
+                        ~ ^~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Dimension.h:52:20: warning: implicit conversion loses integer precision: 'const size_t' (aka 'const unsigned long') to 'int' [-Wshorten-64-to-32]
+                dims[2] = n3 ;
+                        ~ ^~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Dimension.h:65:25: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+            return dims[i] ;
+                   ~~~~ ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Dimension.h:69:22: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+                return dims[i] ;    
+                       ~~~~ ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:57:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Date.h:53:36: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+                m_tm.tm_year = mon - baseYear();
+                             ~ ~~~~^~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Date.h:54:36: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+                m_tm.tm_mon  = day - 1;     // range 0 to 11
+                             ~ ~~~~^~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Date.h:55:32: warning: implicit conversion changes signedness: 'const unsigned int' to 'int' [-Wsign-conversion]
+                m_tm.tm_mday = year;
+                             ~ ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Date.h:57:33: warning: implicit conversion changes signedness: 'const unsigned int' to 'int' [-Wsign-conversion]
+                m_tm.tm_mday  = day;
+                              ~ ^~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Date.h:58:37: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+                m_tm.tm_mon   = mon - 1;        // range 0 to 11
+                              ~ ~~~~^~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Date.h:59:38: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+                m_tm.tm_year  = year - baseYear();
+                              ~ ~~~~~^~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Date.h:108:37: warning: implicit conversion turns floating-point number into integer: 'double' to 'time_t' (aka 'long') [-Wconversion]
+                time_t t = 24*60*60 * m_d;              // (fractional) days since epoch to seconds since epoch
+                       ~   ~~~~~~~~~^~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Date.h:139:29: warning: implicit conversion turns floating-point number into integer: 'double' to 'time_t' (aka 'long') [-Wconversion]
+        time_t t = 24*60*60 * newdate.m_d;      // days since epoch to seconds since epo
+               ~   ~~~~~~~~~^~~~~~~~~~~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:59:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Datetime.h:46:40: warning: implicit conversion changes signedness: 'const unsigned int' to 'int' [-Wsign-conversion]
+                int getMicroSeconds() const { return m_us; }
+                                              ~~~~~~ ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Datetime.h:79:24: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                m_us = static_cast<int>(::Rf_fround( (m_dt - t) * 1.0e6, 0.0)); 
+                     ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Datetime.h:84:24: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                   m_us = NA_INTEGER;
+                        ~ ^~~~~~~~~~
+/Library/Frameworks/R.framework/Resources/include/R_ext/Arith.h:52:20: note: expanded from macro 'NA_INTEGER'
+#define NA_INTEGER      R_NaInt
+                        ^~~~~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:59:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Datetime.h:111:16: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                newdt.m_us = static_cast<int>(::Rf_fround( (newdt.m_dt - t) * 1.0e6, 0.0));     
+                           ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:64:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Module.h:93:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/module/Module.h:74:18: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+                int n = functions.size() ;
+                    ~   ^~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/module/Module.h:90:18: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+                int n = functions.size() ;
+                    ~   ^~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/module/Module.h:103:21: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+            int n = classes.size() ;
+                ~   ^~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/module/Module.h:121:22: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+            int nf = functions.size() ;
+                ~~   ^~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/module/Module.h:122:22: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+            int nc = classes.size() ;
+                ~~   ^~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/module/Module.h:157:21: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+            int n = functions.size() ;
+                ~   ^~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/module/Module.h:182:18: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+                int n = functions.size() ;
+                    ~   ^~~~~~~~~~~~~~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:68:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/sugar/sugar.h:28:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/hash.h:27:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:197:16: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+        return RCPP_HASH(value) ;
+        ~~~~~~ ^~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:45:61: note: expanded from macro 'RCPP_HASH'
+    #define RCPP_HASH(X) (3141592653U * ((unsigned int)(X)) >> (32 - k))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:212:14: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+      addr = RCPP_HASH(val_u.u[0] + val_u.u[1]);
+           ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:45:61: note: expanded from macro 'RCPP_HASH'
+    #define RCPP_HASH(X) (3141592653U * ((unsigned int)(X)) >> (32 - k))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:221:18: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+          addr = RCPP_HASH((val & 0xffffffff) ^ (val >> 32));
+               ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:45:61: note: expanded from macro 'RCPP_HASH'
+    #define RCPP_HASH(X) (3141592653U * ((unsigned int)(X)) >> (32 - k))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:68:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/sugar/sugar.h:28:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/hash.h:28:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/SelfHash.h:95:16: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+        return RCPP_HASH(value) ;
+        ~~~~~~ ^~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:45:61: note: expanded from macro 'RCPP_HASH'
+    #define RCPP_HASH(X) (3141592653U * ((unsigned int)(X)) >> (32 - k))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:68:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/sugar/sugar.h:28:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/hash.h:28:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/SelfHash.h:110:14: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+      addr = RCPP_HASH(val_u.u[0] + val_u.u[1]);
+           ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:45:61: note: expanded from macro 'RCPP_HASH'
+    #define RCPP_HASH(X) (3141592653U * ((unsigned int)(X)) >> (32 - k))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:68:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/sugar/sugar.h:28:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/hash.h:28:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/SelfHash.h:119:18: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+          addr = RCPP_HASH((val & 0xffffffff) ^ (val >> 32));
+               ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/hash/IndexHash.h:45:61: note: expanded from macro 'RCPP_HASH'
+    #define RCPP_HASH(X) (3141592653U * ((unsigned int)(X)) >> (32 - k))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:68:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/sugar/sugar.h:31:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/sugar/functions/functions.h:41:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/sugar/functions/seq_along.h:49:24: warning: implicit conversion loses integer precision: 'const size_t' (aka 'const unsigned long') to 'int' [-Wshorten-64-to-32]
+        return sugar::SeqLen( n ) ;
+               ~~~~~          ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:79:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/meat.h:51:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/wrap.h:34:24: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'const int' [-Wshorten-64-to-32]
+        CharacterVector names(size) ;
+                        ~~~~~ ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/wrap.h:40:15: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+        names[i] = buffer ;
+        ~~~~~ ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/wrap.h:50:45: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> names( Rf_allocVector(STRSXP, size) ) ;
+                            ~~~~~~~~~~~~~~         ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/wrap.h:51:41: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector(VECSXP, size) ) ;
+                        ~~~~~~~~~~~~~~         ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/wrap.h:56:32: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        SET_STRING_ELT( names, i, buffer.get_sexp() ) ;
+        ~~~~~~~~~~~~~~         ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:79:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/meat.h:53:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/module/Module.h:26:14: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+            int n = classes.size() ;
+                ~   ^~~~~~~~~~~~~~
+main.cpp:24:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:58:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/DateVector.h:26:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/GreedyVector.h:35:22: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+            v.resize(len);
+            ~        ^~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/DateVector.h:32:32: note: in instantiation of member function 'Rcpp::GreedyVector<Rcpp::Date, Rcpp::DateVector>::GreedyVector' requested here
+        DateVector(SEXP vec) : GreedyVector<Date, DateVector>(vec){}
+                               ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:58:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/DateVector.h:26:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/GreedyVector.h:37:19: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+                v[i] = T( static_cast<double>(REAL(vec)[i]));
+                ~ ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/GreedyVector.h:40:33: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+        GreedyVector(int n) : v(n){}
+                              ~ ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/DateVector.h:33:29: note: in instantiation of member function 'Rcpp::GreedyVector<Rcpp::Date, Rcpp::DateVector>::GreedyVector' requested here
+        DateVector(int n) : GreedyVector<Date, DateVector>(n){}
+                            ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:58:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/DateVector.h:26:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/GreedyVector.h:35:22: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+            v.resize(len);
+            ~        ^~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/DatetimeVector.h:33:36: note: in instantiation of member function 'Rcpp::GreedyVector<Rcpp::Datetime, Rcpp::DatetimeVector>::GreedyVector' requested here
+        DatetimeVector(SEXP vec) : GreedyVector<Datetime, DatetimeVector>(vec){}
+                                   ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:58:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/DateVector.h:26:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/GreedyVector.h:37:19: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+                v[i] = T( static_cast<double>(REAL(vec)[i]));
+                ~ ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/GreedyVector.h:40:33: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+        GreedyVector(int n) : v(n){}
+                              ~ ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/DatetimeVector.h:34:33: note: in instantiation of member function 'Rcpp::GreedyVector<Rcpp::Datetime, Rcpp::DatetimeVector>::GreedyVector' requested here
+        DatetimeVector(int n) : GreedyVector<Datetime, DatetimeVector>(n){}
+                                ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:27:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/RcppCommon.h:170:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:329:16: warning: implicit conversion changes signedness: 'typename iterator_traits<_Rb_tree_const_iterator<pair<const basic_string<char>, map<basic_string<char>, int, less<basic_string<char> >, allocator<pair<const basic_string<char>, int> > > > > >::difference_type' (aka 'long') to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+        size_t size = std::distance( first, last ) ;
+               ~~~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:417:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch___impl<std::_Rb_tree_const_iterator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > >, std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > >' requested here
+        return range_wrap_dispatch___impl<InputIterator,T>( first, last, typename ::Rcpp::traits::r_type_traits<T>::r_category() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:427:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch<std::_Rb_tree_const_iterator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > >, std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > >' requested here
+        return range_wrap_dispatch<InputIterator,typename traits::remove_reference<typename std::iterator_traits<InputIterator>::value_type>::type >( first, last ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:542:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap<std::_Rb_tree_const_iterator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > >' requested here
+        return range_wrap( object.begin(), object.end() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:550:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_range_sugar_expression<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        return wrap_range_sugar_expression( object, typename Rcpp::traits::is_sugar_expression<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:557:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch_unknown_iterable__logical<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        return wrap_dispatch_unknown_iterable__logical( object, 
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:659:9: note: (skipping 3 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+        return wrap_dispatch_unknown_iterable__matrix_interface( object, 
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:780:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch_eigen<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        return wrap_dispatch_eigen( object, typename traits::is_eigen_base<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:800:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch_unknown_importable<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        return wrap_dispatch_unknown_importable( object, typename ::Rcpp::traits::is_importer<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:899:19: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        return internal::wrap_dispatch( object, typename ::Rcpp::traits::wrap_type_traits<T>::wrap_category() ) ;
+                         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/SlotProxy.h:26:14: note: in instantiation of function template specialization 'Rcpp::wrap<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        set( wrap( rhs ) ) ;
+             ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Module.h:400:32: note: in instantiation of function template specialization 'Rcpp::SlotProxyPolicy<Rcpp::S4_Impl<PreserveStorage> >::SlotProxy::operator=<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+                slot( "enums"  )      = cl->enums ;
+                                      ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:27:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/RcppCommon.h:170:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:330:42: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( VECSXP, size ) );
+                        ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:331:46: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> names( Rf_allocVector( STRSXP, size ) ) ;
+                            ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:338:22: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+                SET_VECTOR_ELT( x, i, element ) ;
+                ~~~~~~~~~~~~~~     ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:339:26: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+                SET_STRING_ELT( names, i, Rf_mkChar(buf.c_str()) ) ; 
+                ~~~~~~~~~~~~~~         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:255:16: warning: implicit conversion changes signedness: 'typename iterator_traits<_Rb_tree_const_iterator<pair<const basic_string<char>, int> > >::difference_type' (aka 'long') to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+        size_t size = std::distance( first, last ) ;
+               ~~~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:312:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch___impl__cast<std::_Rb_tree_const_iterator<std::pair<const std::basic_string<char>, int> >, std::pair<const std::basic_string<char>, int> >' requested here
+        return range_wrap_dispatch___impl__cast<InputIterator,T>( first, last, 
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:417:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch___impl<std::_Rb_tree_const_iterator<std::pair<const std::basic_string<char>, int> >, std::pair<const std::basic_string<char>, int> >' requested here
+        return range_wrap_dispatch___impl<InputIterator,T>( first, last, typename ::Rcpp::traits::r_type_traits<T>::r_category() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:427:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch<std::_Rb_tree_const_iterator<std::pair<const std::basic_string<char>, int> >, std::pair<const std::basic_string<char>, int> >' requested here
+        return range_wrap_dispatch<InputIterator,typename traits::remove_reference<typename std::iterator_traits<InputIterator>::value_type>::type >( first, last ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:542:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap<std::_Rb_tree_const_iterator<std::pair<const std::basic_string<char>, int> > >' requested here
+        return range_wrap( object.begin(), object.end() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:550:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_range_sugar_expression<std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > >' requested here
+        return wrap_range_sugar_expression( object, typename Rcpp::traits::is_sugar_expression<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:557:9: note: (skipping 16 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+        return wrap_dispatch_unknown_iterable__logical( object, 
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:780:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch_eigen<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        return wrap_dispatch_eigen( object, typename traits::is_eigen_base<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:800:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch_unknown_importable<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        return wrap_dispatch_unknown_importable( object, typename ::Rcpp::traits::is_importer<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:899:19: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        return internal::wrap_dispatch( object, typename ::Rcpp::traits::wrap_type_traits<T>::wrap_category() ) ;
+                         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/SlotProxy.h:26:14: note: in instantiation of function template specialization 'Rcpp::wrap<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+        set( wrap( rhs ) ) ;
+             ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Module.h:400:32: note: in instantiation of function template specialization 'Rcpp::SlotProxyPolicy<Rcpp::S4_Impl<PreserveStorage> >::SlotProxy::operator=<std::map<std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > >, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::map<std::basic_string<char>, int, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, int> > > > > > >' requested here
+                slot( "enums"  )      = cl->enums ;
+                                      ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:27:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/RcppCommon.h:170:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:257:41: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( RTYPE, size ) );
+                        ~~~~~~~~~~~~~~         ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:258:46: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> names( Rf_allocVector( STRSXP, size ) ) ;
+                            ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:266:26: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+                SET_STRING_ELT( names, i, Rf_mkChar(buf.c_str()) ) ;
+                ~~~~~~~~~~~~~~         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:230:16: warning: implicit conversion changes signedness: 'typename iterator_traits<__normal_iterator<const basic_string<char> *, vector<basic_string<char>, allocator<basic_string<char> > > > >::difference_type' (aka 'long') to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+        size_t size = std::distance( first, last ) ;
+               ~~~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:417:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch___impl<__gnu_cxx::__normal_iterator<const std::basic_string<char> *, std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >, std::basic_string<char> >' requested here
+        return range_wrap_dispatch___impl<InputIterator,T>( first, last, typename ::Rcpp::traits::r_type_traits<T>::r_category() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:427:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch<__gnu_cxx::__normal_iterator<const std::basic_string<char> *, std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >, std::basic_string<char> >' requested here
+        return range_wrap_dispatch<InputIterator,typename traits::remove_reference<typename std::iterator_traits<InputIterator>::value_type>::type >( first, last ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:542:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap<__gnu_cxx::__normal_iterator<const std::basic_string<char> *, std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > > >' requested here
+        return range_wrap( object.begin(), object.end() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:550:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_range_sugar_expression<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >' requested here
+        return wrap_range_sugar_expression( object, typename Rcpp::traits::is_sugar_expression<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:557:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch_unknown_iterable__logical<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >' requested here
+        return wrap_dispatch_unknown_iterable__logical( object, 
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:659:9: note: (skipping 3 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+        return wrap_dispatch_unknown_iterable__matrix_interface( object, 
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:780:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch_eigen<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >' requested here
+        return wrap_dispatch_eigen( object, typename traits::is_eigen_base<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:800:9: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch_unknown_importable<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >' requested here
+        return wrap_dispatch_unknown_importable( object, typename ::Rcpp::traits::is_importer<T>::type() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:899:19: note: in instantiation of function template specialization 'Rcpp::internal::wrap_dispatch<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >' requested here
+        return internal::wrap_dispatch( object, typename ::Rcpp::traits::wrap_type_traits<T>::wrap_category() ) ;
+                         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/SlotProxy.h:26:14: note: in instantiation of function template specialization 'Rcpp::wrap<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >' requested here
+        set( wrap( rhs ) ) ;
+             ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/Module.h:401:32: note: in instantiation of function template specialization 'Rcpp::SlotProxyPolicy<Rcpp::S4_Impl<PreserveStorage> >::SlotProxy::operator=<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >' requested here
+                slot( "parents" )     = cl->parents ;
+                                      ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:27:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/RcppCommon.h:170:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:231:42: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( STRSXP, size ) ) ;
+                        ~~~~~~~~~~~~~~          ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:234:22: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+                SET_STRING_ELT( x, i, make_charsexp(*first) ) ;
+                ~~~~~~~~~~~~~~     ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:79:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/meat.h:49:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/export.h:54:32: warning: implicit conversion changes signedness: 'R_len_t' (aka 'int') to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+                Container vec( ::Rf_length(object) );
+                          ~~~  ^~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/as.h:81:29: note: in instantiation of member function 'Rcpp::traits::ContainerExporter<vector, int>::get' requested here
+            return exporter.get() ;
+                            ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/as.h:144:26: note: in instantiation of function template specialization 'Rcpp::internal::as<std::vector<int, std::allocator<int> > >' requested here
+        return internal::as<T>( x, typename traits::r_type_traits<T>::r_category() ) ;
+                         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/Dimension.h:23:53: note: in instantiation of function template specialization 'Rcpp::as<std::vector<int, std::allocator<int> > >' requested here
+    inline Dimension::Dimension(SEXP dims_) : dims( as< std::vector<int> >(dims_) ){}
+                                                    ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:27:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/RcppCommon.h:170:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:112:16: warning: implicit conversion changes signedness: 'typename iterator_traits<__normal_iterator<const int *, vector<int, allocator<int> > > >::difference_type' (aka 'long') to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+        size_t size = std::distance( first, last ) ;
+               ~~~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:160:9: note: in instantiation of function template specialization 'Rcpp::internal::primitive_range_wrap__impl__nocast<__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, int>' requested here
+        return primitive_range_wrap__impl__nocast<InputIterator,T>( first, last, typename std::iterator_traits<InputIterator>::iterator_category() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:172:9: note: in instantiation of function template specialization 'Rcpp::internal::primitive_range_wrap__impl<__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, int>' requested here
+        return primitive_range_wrap__impl<InputIterator,T>( first, last, typename ::Rcpp::traits::r_sexptype_needscast<T>() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:417:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch___impl<__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, int>' requested here
+        return range_wrap_dispatch___impl<InputIterator,T>( first, last, typename ::Rcpp::traits::r_type_traits<T>::r_category() ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:427:9: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap_dispatch<__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, int>' requested here
+        return range_wrap_dispatch<InputIterator,typename traits::remove_reference<typename std::iterator_traits<InputIterator>::value_type>::type >( first, last ) ;
+               ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:937:19: note: in instantiation of function template specialization 'Rcpp::internal::range_wrap<__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > > >' requested here
+        return internal::range_wrap( first, last ) ;
+                         ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/api/meat/Dimension.h:26:16: note: in instantiation of function template specialization 'Rcpp::wrap<__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > > >' requested here
+        return wrap( dims.begin(), dims.end() ) ;    
+               ^
+In file included from main.cpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInside.h:26:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/RInside/include/RInsideCommon.h:38:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp.h:27:
+In file included from /Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/RcppCommon.h:170:
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:114:41: warning: implicit conversion changes signedness: 'size_t' (aka 'unsigned long') to 'R_xlen_t' (aka 'long') [-Wsign-conversion]
+        Shield<SEXP> x( Rf_allocVector( RTYPE, size ) );
+                        ~~~~~~~~~~~~~~         ^~~~
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:126:17: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        switch (size - i){                          
+                     ~ ^
+/Library/Frameworks/R.framework/Versions/3.0/Resources/library/Rcpp/include/Rcpp/internal/wrap.h:117:26: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+        int __trip_count = size >> 2 ;
+            ~~~~~~~~~~~~   ~~~~~^~~~
+79 warnings generated.

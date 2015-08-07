@@ -46,6 +46,18 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// Areal_CCF
+void Areal_CCF(NumericMatrix dmat1, NumericMatrix dmat2, std::string bitdepth);
+RcppExport SEXP feature2_Areal_CCF(SEXP dmat1SEXP, SEXP dmat2SEXP, SEXP bitdepthSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat1(dmat1SEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat2(dmat2SEXP);
+    Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
+    Areal_CCF(dmat1, dmat2, bitdepth);
+    return R_NilValue;
+END_RCPP
+}
 // testscale
 void testscale(NumericMatrix dmat, std::string bitdepth, bool printQ);
 RcppExport SEXP feature2_testscale(SEXP dmatSEXP, SEXP bitdepthSEXP, SEXP printQSEXP) {
@@ -98,6 +110,18 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// Fill_Holes
+NumericMatrix Fill_Holes(NumericMatrix dmat, NumericMatrix mask);
+RcppExport SEXP feature2_Fill_Holes(SEXP dmatSEXP, SEXP maskSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type mask(maskSEXP);
+    __result = Rcpp::wrap(Fill_Holes(dmat, mask));
+    return __result;
+END_RCPP
+}
 // Filter2D
 NumericMatrix Filter2D(NumericMatrix dmat, NumericMatrix kernel, std::string bitdepth);
 RcppExport SEXP feature2_Filter2D(SEXP dmatSEXP, SEXP kernelSEXP, SEXP bitdepthSEXP) {
@@ -108,6 +132,37 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericMatrix >::type kernel(kernelSEXP);
     Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
     __result = Rcpp::wrap(Filter2D(dmat, kernel, bitdepth));
+    return __result;
+END_RCPP
+}
+// FindHoles
+NumericMatrix FindHoles(NumericMatrix dmat_mask, std::string mode, std::string approx_method, double big_hole_tol);
+RcppExport SEXP feature2_FindHoles(SEXP dmat_maskSEXP, SEXP modeSEXP, SEXP approx_methodSEXP, SEXP big_hole_tolSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat_mask(dmat_maskSEXP);
+    Rcpp::traits::input_parameter< std::string >::type mode(modeSEXP);
+    Rcpp::traits::input_parameter< std::string >::type approx_method(approx_methodSEXP);
+    Rcpp::traits::input_parameter< double >::type big_hole_tol(big_hole_tolSEXP);
+    __result = Rcpp::wrap(FindHoles(dmat_mask, mode, approx_method, big_hole_tol));
+    return __result;
+END_RCPP
+}
+// GaussianBlur2D
+NumericMatrix GaussianBlur2D(NumericMatrix dmat, std::string bitdepth, int num_rows_kernel, int num_cols_kernel, double sigmaX, double sigmaY, std::string borderType);
+RcppExport SEXP feature2_GaussianBlur2D(SEXP dmatSEXP, SEXP bitdepthSEXP, SEXP num_rows_kernelSEXP, SEXP num_cols_kernelSEXP, SEXP sigmaXSEXP, SEXP sigmaYSEXP, SEXP borderTypeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
+    Rcpp::traits::input_parameter< int >::type num_rows_kernel(num_rows_kernelSEXP);
+    Rcpp::traits::input_parameter< int >::type num_cols_kernel(num_cols_kernelSEXP);
+    Rcpp::traits::input_parameter< double >::type sigmaX(sigmaXSEXP);
+    Rcpp::traits::input_parameter< double >::type sigmaY(sigmaYSEXP);
+    Rcpp::traits::input_parameter< std::string >::type borderType(borderTypeSEXP);
+    __result = Rcpp::wrap(GaussianBlur2D(dmat, bitdepth, num_rows_kernel, num_cols_kernel, sigmaX, sigmaY, borderType));
     return __result;
 END_RCPP
 }
@@ -151,14 +206,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // Resize
-NumericMatrix Resize(NumericMatrix dmat, uint num_rows, uint num_cols);
+NumericMatrix Resize(NumericMatrix dmat, unsigned int num_rows, unsigned int num_cols);
 RcppExport SEXP feature2_Resize(SEXP dmatSEXP, SEXP num_rowsSEXP, SEXP num_colsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
-    Rcpp::traits::input_parameter< uint >::type num_rows(num_rowsSEXP);
-    Rcpp::traits::input_parameter< uint >::type num_cols(num_colsSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type num_rows(num_rowsSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type num_cols(num_colsSEXP);
     __result = Rcpp::wrap(Resize(dmat, num_rows, num_cols));
     return __result;
 END_RCPP
