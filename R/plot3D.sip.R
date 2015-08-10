@@ -20,7 +20,7 @@
 #'
 #' @examples XXXX
 #--------------------------------------------
-plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2), plot.type="points") {
+plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2), plot.type="points", x.phys.max=NULL, y.phys.max=NULL) {
   
   surf.mat<-dmat
   
@@ -50,6 +50,13 @@ plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2),
   xaxis <- 1:ncol(decimated.surf.mat)
   yaxis <- 1:nrow(decimated.surf.mat)
   
+  if(!is.null(x.phys.max)) {
+    xaxis.phys <- seq(0, x.phys.max, length.out=length(xaxis))
+  }
+  if(!is.null(y.phys.max)) {
+    yaxis.phys <- seq(0, y.phys.max, length.out=length(yaxis))
+  }
+  
   if(plot.type=="points"){
     
     coords<-cbind(expand.grid(X=xaxis, Y=yaxis), as.numeric(t(decimated.surf.mat)))
@@ -70,11 +77,17 @@ plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2),
     zcol  = cut(decimated.surf.mat, nbcol)   
     #persp3d(xaxis, yaxis, t(decimated.surf.mat), aspect=aspect, col=color[zcol])
     
-    #Swap x and y axes to put origin in top left corner (image coordinates)
-    rgl.plot.obj <- persp3d(yaxis, xaxis, decimated.surf.mat, aspect=aspect, col=color[zcol])
+    if( (!is.null(x.phys.max)) & (!is.null(y.phys.max)) ) {
+      #Swap x and y axes to put origin in top left corner (image coordinates)
+      rgl.plot.obj <- persp3d(yaxis.phys, xaxis.phys, decimated.surf.mat, aspect=aspect, col=color[zcol])
+    } else {
+      #Swap x and y axes to put origin in top left corner (image coordinates)
+      rgl.plot.obj <- persp3d(yaxis, xaxis, decimated.surf.mat, aspect=aspect, col=color[zcol])      
+    }
     
     #coords<-cbind(expand.grid(X=xaxis, Y=yaxis), as.numeric(t(decimated.surf.mat)))
     #return(list(rgl.plot.obj, coords))
+    #return(rgl.plot.obj)
     
   } else {
     print("Pick surface or points.")

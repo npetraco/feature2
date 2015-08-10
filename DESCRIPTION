@@ -7,5 +7,6 @@ Author: Your Name
 Maintainer: Your Name <your@email.com>
 Description: More about what it does (maybe more than one line)
 License: GPL (>= 2)
-Imports: Rcpp (>= 0.11.5)
+Imports: Rcpp (>= 0.11.5), rgl (>= 0.93.1098), waveslim (>= 1.7.1)
+Depends: Rcpp (>= 0.11.5), rgl (>= 0.93.1098), waveslim (>= 1.7.1)
 LinkingTo: Rcpp, RcppArmadillo
