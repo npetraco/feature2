@@ -1,0 +1,19 @@
+// [[Rcpp::depends("RcppArmadillo")]]
+#include <RcppArmadillo.h>
+
+using namespace Rcpp;
+using namespace std;
+
+// [[Rcpp::export]]
+NumericMatrix vec2mat(NumericVector row_idxs, NumericVector col_idxs, NumericVector mat_elems, int num_rows, int num_cols) {
+  
+  arma::mat dmat = arma::mat(num_rows, num_cols).fill(arma::datum::nan);
+    
+  for(int i = 0; i<mat_elems.length(); i++) {
+    dmat.at(row_idxs[i]-1, col_idxs[i]-1 ) = mat_elems[i];  //No index checks
+    //dmat(row_idxs(i)-1, col_idxs(i)-1) = mat_elems(i);    //Index checks
+  }
+  
+  return wrap(dmat);
+  
+}

@@ -73,6 +73,10 @@ Sobel <- function(dmat, bitdepth, ddepth, dx, dy, ksize = 3L, scale = 1.0, delta
     .Call('feature2_Sobel', PACKAGE = 'feature2', dmat, bitdepth, ddepth, dx, dy, ksize, scale, delta, borderType)
 }
 
+vec2mat <- function(row_idxs, col_idxs, mat_elems, num_rows, num_cols) {
+    .Call('feature2_vec2mat', PACKAGE = 'feature2', row_idxs, col_idxs, mat_elems, num_rows, num_cols)
+}
+
 WriteMat <- function(dmat, bitdepth, fpath) {
     invisible(.Call('feature2_WriteMat', PACKAGE = 'feature2', dmat, bitdepth, fpath))
 }

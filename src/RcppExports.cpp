@@ -237,6 +237,21 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// vec2mat
+NumericMatrix vec2mat(NumericVector row_idxs, NumericVector col_idxs, NumericVector mat_elems, int num_rows, int num_cols);
+RcppExport SEXP feature2_vec2mat(SEXP row_idxsSEXP, SEXP col_idxsSEXP, SEXP mat_elemsSEXP, SEXP num_rowsSEXP, SEXP num_colsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericVector >::type row_idxs(row_idxsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type col_idxs(col_idxsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type mat_elems(mat_elemsSEXP);
+    Rcpp::traits::input_parameter< int >::type num_rows(num_rowsSEXP);
+    Rcpp::traits::input_parameter< int >::type num_cols(num_colsSEXP);
+    __result = Rcpp::wrap(vec2mat(row_idxs, col_idxs, mat_elems, num_rows, num_cols));
+    return __result;
+END_RCPP
+}
 // WriteMat
 void WriteMat(NumericMatrix dmat, std::string bitdepth, std::string fpath);
 RcppExport SEXP feature2_WriteMat(SEXP dmatSEXP, SEXP bitdepthSEXP, SEXP fpathSEXP) {
