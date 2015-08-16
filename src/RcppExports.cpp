@@ -82,6 +82,21 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// Crop_Retangular_ROI
+NumericMatrix Crop_Retangular_ROI(NumericMatrix dmat, unsigned int X, unsigned int Y, unsigned int Width, unsigned int Height);
+RcppExport SEXP feature2_Crop_Retangular_ROI(SEXP dmatSEXP, SEXP XSEXP, SEXP YSEXP, SEXP WidthSEXP, SEXP HeightSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type X(XSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type Width(WidthSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type Height(HeightSEXP);
+    __result = Rcpp::wrap(Crop_Retangular_ROI(dmat, X, Y, Width, Height));
+    return __result;
+END_RCPP
+}
 // DFTMag2D
 NumericMatrix DFTMag2D(NumericMatrix dmat, std::string bitdepth);
 RcppExport SEXP feature2_DFTMag2D(SEXP dmatSEXP, SEXP bitdepthSEXP) {
@@ -250,6 +265,15 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type num_cols(num_colsSEXP);
     __result = Rcpp::wrap(vec2mat(row_idxs, col_idxs, mat_elems, num_rows, num_cols));
     return __result;
+END_RCPP
+}
+// vltest
+void vltest();
+RcppExport SEXP feature2_vltest() {
+BEGIN_RCPP
+    Rcpp::RNGScope __rngScope;
+    vltest();
+    return R_NilValue;
 END_RCPP
 }
 // WriteMat

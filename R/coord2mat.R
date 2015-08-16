@@ -28,7 +28,7 @@ coords2mat<-function(x.idxs, y.idxs, z.vec, x.max.idx=NULL, y.max.idx=NULL) {
     
   }
   
-  #C++ for speed. R loop was pretty slow with big matrices
+  #C++-ed for speed. R loop was pretty slow with big matrices
   dmat <- vec2mat(y.idxs, x.idxs, z.vec, num.rows, num.cols)
 
   return(dmat)

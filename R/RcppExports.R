@@ -25,6 +25,10 @@ testConvert <- function(dmat, printQ = FALSE) {
     .Call('feature2_testConvert', PACKAGE = 'feature2', dmat, printQ)
 }
 
+Crop_Retangular_ROI <- function(dmat, X, Y, Width, Height) {
+    .Call('feature2_Crop_Retangular_ROI', PACKAGE = 'feature2', dmat, X, Y, Width, Height)
+}
+
 DFTMag2D <- function(dmat, bitdepth) {
     .Call('feature2_DFTMag2D', PACKAGE = 'feature2', dmat, bitdepth)
 }
@@ -75,6 +79,10 @@ Sobel <- function(dmat, bitdepth, ddepth, dx, dy, ksize = 3L, scale = 1.0, delta
 
 vec2mat <- function(row_idxs, col_idxs, mat_elems, num_rows, num_cols) {
     .Call('feature2_vec2mat', PACKAGE = 'feature2', row_idxs, col_idxs, mat_elems, num_rows, num_cols)
+}
+
+vltest <- function() {
+    invisible(.Call('feature2_vltest', PACKAGE = 'feature2'))
 }
 
 WriteMat <- function(dmat, bitdepth, fpath) {
