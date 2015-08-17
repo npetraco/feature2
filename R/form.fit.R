@@ -87,13 +87,23 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
     }
     
   } else if(deg==2) {
-#     fit <- nlsLM(z ~ a + b*x + c*y + d*x^2 + e*y^2 + f*x*y, start = list(a = rnorm(1), 
-#                                                                          b = rnorm(1), 
-#                                                                          c = rnorm(1), 
-#                                                                          d = rnorm(1), 
-#                                                                          e = rnorm(1), 
-#                                                                          f = rnorm(1)), trace=T)
-    print("Not done.")
+    fit <- nlsLM(z ~ a + b*x + c*y + d*x^2 + e*y^2 + f*x*y, start = list(a = rnorm(1), 
+                                                                         b = rnorm(1), 
+                                                                         c = rnorm(1), 
+                                                                         d = rnorm(1), 
+                                                                         e = rnorm(1), 
+                                                                         f = rnorm(1)), trace=T)
+
+#     pred <- predict(fit)
+#     
+#     #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y
+#     pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))
+#     
+#     #Scale back to original dimensions
+#     if( (nrow(decimated.surf.mat) != nrow(dmat)) & (ncol(decimated.surf.mat) != ncol(dmat))) {
+#       pred <- Resize(pred, nrow(dmat), ncol(dmat)) 
+#     }
+    
   } else {
     stop("Not implemented yet.")
   }

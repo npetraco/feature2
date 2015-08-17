@@ -36,8 +36,8 @@ plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2),
   
   print(paste("Total # points: ", tot.num.pts))
   
-  #More than 500,000 pts? Ask to plot.
-  if(tot.num.pts>=5e5){
+  #More than 1,000,000 pts? Ask to plot.
+  if(tot.num.pts>=1e6){
     print("Lots of points. Sure you want to do this? (y/n)")
     ans <- readline()
     if(ans=="n") {

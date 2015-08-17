@@ -82,18 +82,32 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
-// Crop_Retangular_ROI
-NumericMatrix Crop_Retangular_ROI(NumericMatrix dmat, unsigned int X, unsigned int Y, unsigned int Width, unsigned int Height);
-RcppExport SEXP feature2_Crop_Retangular_ROI(SEXP dmatSEXP, SEXP XSEXP, SEXP YSEXP, SEXP WidthSEXP, SEXP HeightSEXP) {
+// Circular_Mask_ROI
+NumericMatrix Circular_Mask_ROI(NumericMatrix dmat, int xc_idx, int yc_idx, int pix_radius);
+RcppExport SEXP feature2_Circular_Mask_ROI(SEXP dmatSEXP, SEXP xc_idxSEXP, SEXP yc_idxSEXP, SEXP pix_radiusSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
-    Rcpp::traits::input_parameter< unsigned int >::type X(XSEXP);
-    Rcpp::traits::input_parameter< unsigned int >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< int >::type xc_idx(xc_idxSEXP);
+    Rcpp::traits::input_parameter< int >::type yc_idx(yc_idxSEXP);
+    Rcpp::traits::input_parameter< int >::type pix_radius(pix_radiusSEXP);
+    __result = Rcpp::wrap(Circular_Mask_ROI(dmat, xc_idx, yc_idx, pix_radius));
+    return __result;
+END_RCPP
+}
+// Crop_Retangular_ROI
+NumericMatrix Crop_Retangular_ROI(NumericMatrix dmat, unsigned int Xstart_index, unsigned int Ystart_index, unsigned int Width, unsigned int Height);
+RcppExport SEXP feature2_Crop_Retangular_ROI(SEXP dmatSEXP, SEXP Xstart_indexSEXP, SEXP Ystart_indexSEXP, SEXP WidthSEXP, SEXP HeightSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type Xstart_index(Xstart_indexSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type Ystart_index(Ystart_indexSEXP);
     Rcpp::traits::input_parameter< unsigned int >::type Width(WidthSEXP);
     Rcpp::traits::input_parameter< unsigned int >::type Height(HeightSEXP);
-    __result = Rcpp::wrap(Crop_Retangular_ROI(dmat, X, Y, Width, Height));
+    __result = Rcpp::wrap(Crop_Retangular_ROI(dmat, Xstart_index, Ystart_index, Width, Height));
     return __result;
 END_RCPP
 }

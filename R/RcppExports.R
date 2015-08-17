@@ -25,8 +25,12 @@ testConvert <- function(dmat, printQ = FALSE) {
     .Call('feature2_testConvert', PACKAGE = 'feature2', dmat, printQ)
 }
 
-Crop_Retangular_ROI <- function(dmat, X, Y, Width, Height) {
-    .Call('feature2_Crop_Retangular_ROI', PACKAGE = 'feature2', dmat, X, Y, Width, Height)
+Circular_Mask_ROI <- function(dmat, xc_idx, yc_idx, pix_radius) {
+    .Call('feature2_Circular_Mask_ROI', PACKAGE = 'feature2', dmat, xc_idx, yc_idx, pix_radius)
+}
+
+Crop_Retangular_ROI <- function(dmat, Xstart_index, Ystart_index, Width, Height) {
+    .Call('feature2_Crop_Retangular_ROI', PACKAGE = 'feature2', dmat, Xstart_index, Ystart_index, Width, Height)
 }
 
 DFTMag2D <- function(dmat, bitdepth) {
