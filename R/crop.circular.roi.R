@@ -17,9 +17,10 @@ crop.circular.roi <- function(dmat, xc.idx, yc.idx, pix.radius, crop.empty.borde
   
   
   mask <- Circular_Mask_ROI(dmat, xc.idx, yc.idx, pix.radius)
+  cropped.dmat <- array(NaN, dim(dmat))
+  
   if(roi.type=="inner") {
     
-    cropped.dmat <- array(NaN, dim(dmat))
     keep.idxs <- which(mask == 1, arr.ind=TRUE)
     cropped.dmat[keep.idxs] <- dmat[keep.idxs]
     
@@ -28,11 +29,15 @@ crop.circular.roi <- function(dmat, xc.idx, yc.idx, pix.radius, crop.empty.borde
     }
   }
   
-#   if(roi.type=="outer") {
-#     cropped.dmat[top.idx.start:bot.idx.start, left.idx.start:right.idx.start] <- NaN
-#   }
-  
-  
+  if(roi.type=="outer") {
+    
+    keep.idxs <- which(mask == 0, arr.ind=TRUE)
+    cropped.dmat[keep.idxs] <- dmat[keep.idxs]
+    
+    if(crop.empty.border==TRUE) {
+      cropped.dmat <- crop.retangular.roi(cropped.dmat, clip.empty.border=TRUE)
+    }
+  }
   
   return(cropped.dmat)
 
