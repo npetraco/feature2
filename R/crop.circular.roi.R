@@ -27,7 +27,7 @@ crop.circular.roi <- function(dmat, xc.idx, yc.idx, pix.radius, crop.empty.borde
   
   #keep what's outside the circle
   if(roi.type=="outer") {
-    keep.idxs <- which(mask == 1, arr.ind=TRUE)    
+    keep.idxs <- which(mask == 0, arr.ind=TRUE)    
   } 
   
   cropped.dmat[keep.idxs] <- dmat[keep.idxs]
