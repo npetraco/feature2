@@ -49,17 +49,28 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
   
   #Don't use any zeroed/min/nan, etc coords. They were big holes.
   if(is.number(drop.val)) {
-    #print("value HERE!")
+    
+    print(paste("Dropping all elements =",drop.val))
     coords <- coords[-which(coords[,3] == drop.val),]
-  } else if(is.null(drop.val)) {
-    #print("NULL HERE!")
-    coords <- coords[-which(is.null(coords[,3])) ,]
+    
   } else if(is.nan(drop.val)) {
-    #print("NaN HERE!")
-    coords <- coords[-which(is.nan(coords[,3])) ,]
+    
+    if(NaN %in% coords[,3]) {
+      print("Dropping all NaN elements.")
+      coords <- coords[-which(is.nan(coords[,3])) ,]      
+    } else {
+      print("Drop NaNs requested, but no NaNs to drop!")
+    }
+    
   } else if(is.na(drop.val)) {
-    #print("NA HERE!")
-    coords <- coords[-which(is.na(coords[,3])) ,]
+    
+    if(NaN %in% coords[,3]) {
+      print("Dropping all NA elements.")
+      coords <- coords[-which(is.na(coords[,3])) ,]      
+    } else {
+      print("Drop NAs requested, but no NAs to drop!")
+    }
+    
   }
   
   if(!is.null(x.phys.max) & !is.null(y.phys.max) ) {
@@ -94,15 +105,15 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
                                                                          e = rnorm(1), 
                                                                          f = rnorm(1)), trace=T)
 
-#     pred <- predict(fit)
-#     
-#     #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y
-#     pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))
-#     
-#     #Scale back to original dimensions
-#     if( (nrow(decimated.surf.mat) != nrow(dmat)) & (ncol(decimated.surf.mat) != ncol(dmat))) {
-#       pred <- Resize(pred, nrow(dmat), ncol(dmat)) 
-#     }
+    pred <- predict(fit)
+    
+    #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y
+    pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))
+    
+    #Scale back to original dimensions
+    if( (nrow(decimated.surf.mat) != nrow(dmat)) & (ncol(decimated.surf.mat) != ncol(dmat))) {
+      pred <- Resize(pred, nrow(dmat), ncol(dmat)) 
+    }
     
   } else {
     stop("Not implemented yet.")
