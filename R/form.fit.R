@@ -18,7 +18,7 @@
 #'
 #' @examples XXXX
 #--------------------------------------------
-form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phys.max=NULL, y.phys.max=NULL) {
+form.fit <- function(dmat, deg, drop.val="", num.x.pts=NULL, num.slices=NULL, x.phys.max=NULL, y.phys.max=NULL) {
   
   #Use dimensions of dmat if downsample params not provided
   if(is.null(num.x.pts)) {
@@ -48,7 +48,11 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
   coords <- mat2coords(decimated.surf.mat, x.phys.max, y.phys.max)
   
   #Don't use any zeroed/min/nan, etc coords. They were big holes.
-  if(is.number(drop.val)) {
+  if(is.null(drop.val)) {
+    
+    print("Drop NULLs requested, but NULLS can't be elements!")
+    
+  } else if(is.number(drop.val)) {
     
     print(paste("Dropping all elements =",drop.val))
     coords <- coords[-which(coords[,3] == drop.val),]
@@ -64,7 +68,7 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
     
   } else if(is.na(drop.val)) {
     
-    if(NaN %in% coords[,3]) {
+    if(NA %in% coords[,3]) {
       print("Dropping all NA elements.")
       coords <- coords[-which(is.na(coords[,3])) ,]      
     } else {
@@ -89,7 +93,7 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
     fit <- lm(z ~ x + y)
     pred <- predict(fit)
     
-    #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y
+    #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y. We are just reformating the z to a rectangular matrix
     pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))
     
     #Scale back to original dimensions
@@ -98,6 +102,7 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
     }
     
   } else if(deg==2) {
+    
     fit <- nlsLM(z ~ a + b*x + c*y + d*x^2 + e*y^2 + f*x*y, start = list(a = rnorm(1), 
                                                                          b = rnorm(1), 
                                                                          c = rnorm(1), 
@@ -107,7 +112,99 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
 
     pred <- predict(fit)
     
-    #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y
+    #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y  We are just reformating the z to a rectangular matrix
+    pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))
+    
+    #Scale back to original dimensions
+    if( (nrow(decimated.surf.mat) != nrow(dmat)) & (ncol(decimated.surf.mat) != ncol(dmat))) {
+      pred <- Resize(pred, nrow(dmat), ncol(dmat)) 
+    }
+    
+  } else if(deg==3) {
+    
+    fit <- nlsLM(z ~ a + b*x + c*y + d*x^2 + e*y^2 + f*x*y + g*x^3 + h*y^3 + ii*x^2*y + jj*x*y^2,
+                    start = list(a = rnorm(1), 
+                                 b = rnorm(1), 
+                                 c = rnorm(1), 
+                                 d = rnorm(1), 
+                                 e = rnorm(1), 
+                                 f = rnorm(1),
+                                 g = rnorm(1),
+                                 h = rnorm(1),
+                                ii = rnorm(1),
+                                jj = rnorm(1)),
+                                 trace=T)
+    
+    pred <- predict(fit)
+    
+    #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y  We are just reformating the z to a rectangular matrix
+    pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))
+    
+    #Scale back to original dimensions
+    if( (nrow(decimated.surf.mat) != nrow(dmat)) & (ncol(decimated.surf.mat) != ncol(dmat))) {
+      pred <- Resize(pred, nrow(dmat), ncol(dmat)) 
+    }
+    
+  } else if(deg==4){
+    
+    fit <- nlsLM(z ~ a + b*x + c*y + d*x^2 + e*y^2 + f*x*y + g*x^3 + h*y^3 + ii*x^2*y + jj*x*y^2 + k*x^4 + l*y^4 + m*x^3*y + n*x^2*y^2 + oo*x*y^3,
+                 start = list(a = rnorm(1), 
+                              b = rnorm(1), 
+                              c = rnorm(1), 
+                              d = rnorm(1), 
+                              e = rnorm(1), 
+                              f = rnorm(1),
+                              g = rnorm(1),
+                              h = rnorm(1),
+                              ii = rnorm(1),
+                              jj = rnorm(1),
+                              k = rnorm(1),
+                              l = rnorm(1),
+                              m = rnorm(1),
+                              n = rnorm(1),
+                              oo = rnorm(1)),
+                 trace=T)
+    
+    pred <- predict(fit)
+    
+    #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y  We are just reformating the z to a rectangular matrix
+    pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))
+    
+    #Scale back to original dimensions
+    if( (nrow(decimated.surf.mat) != nrow(dmat)) & (ncol(decimated.surf.mat) != ncol(dmat))) {
+      pred <- Resize(pred, nrow(dmat), ncol(dmat)) 
+    }
+    
+  } else if(deg==5){
+    
+    fit <- nlsLM(z ~ a + b*x + c*y + d*x^2 + e*y^2 + f*x*y + g*x^3 + h*y^3 + ii*x^2*y + jj*x*y^2 + k*x^4 + l*y^4 + m*x^3*y + n*x^2*y^2 + oo*x*y^3 +
+                   pp*x^5 + qq*y^5 + r*x^4*y^1 + s*x^3*y^2 + tt*x^2*y^3 + u*x*y^4,
+                 start = list(a = rnorm(1), 
+                              b = rnorm(1), 
+                              c = rnorm(1), 
+                              d = rnorm(1), 
+                              e = rnorm(1), 
+                              f = rnorm(1),
+                              g = rnorm(1),
+                              h = rnorm(1),
+                              ii = rnorm(1),
+                              jj = rnorm(1),
+                              k = rnorm(1),
+                              l = rnorm(1),
+                              m = rnorm(1),
+                              n = rnorm(1),
+                              oo = rnorm(1),
+                              pp = rnorm(1),
+                              qq = rnorm(1),
+                              r = rnorm(1),
+                              s = rnorm(1),
+                              tt = rnorm(1),
+                              u = rnorm(1)),
+                 trace=T)
+    
+    pred <- predict(fit)
+    
+    #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y  We are just reformating the z to a rectangular matrix
     pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))
     
     #Scale back to original dimensions
@@ -116,7 +213,7 @@ form.fit <- function(dmat, deg, drop.val, num.x.pts=NULL, num.slices=NULL, x.phy
     }
     
   } else {
-    stop("Not implemented yet.")
+    stop("deg > 5 not implemented! Why would you want to go that high??")
   }
 
   return(pred)
