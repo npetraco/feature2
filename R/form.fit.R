@@ -91,7 +91,11 @@ form.fit <- function(dmat, deg, drop.val="", num.x.pts=NULL, num.slices=NULL, x.
   if(deg == 1) {
     
     fit <- lm(z ~ x + y)
-    pred <- predict(fit)
+    #print(fit)
+    #print(coef(fit))
+    #pred <- predict(fit)
+    coeffs <- coef(fit)
+    pred <- x*coeffs[2] + y*coeffs[3] + coeffs[1]
     
     #Note: coords[,1] and coords[,2] are x, y indices, not physical x, y. We are just reformating the z to a rectangular matrix
     pred <- coords2mat(coords[,1], coords[,2], pred, x.max.idx=ncol(decimated.surf.mat), y.max.idx=nrow(decimated.surf.mat))

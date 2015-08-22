@@ -12,7 +12,8 @@ NumericMatrix Crop_Retangular_ROI(NumericMatrix dmat, unsigned int Xstart_index,
   Mat odmat;
   NumericMatrix2openCVMat(dmat, odmat);
   
-  Mat cropped_odmat = odmat(Rect(Xstart_index - 1, Ystart_index - 1, Width - 1, Height -1));
+  //Mat cropped_odmat = odmat(Rect(Xstart_index - 1, Ystart_index - 1, Width - 1, Height -1));
+  Mat cropped_odmat = odmat(Rect(Xstart_index - 1, Ystart_index - 1, Width, Height));
   return openCVMat2NumericMatrix(cropped_odmat);
 
 }

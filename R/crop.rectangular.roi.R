@@ -2,8 +2,7 @@
 #' @title crop.ractangular.roi
 #' @description XXXX
 #' 
-#' @details Fill holes with openCV findContour and inPaint functionality. Back transform 8-bit result to approximate
-#' 64-bit physical scale of original data.
+#' @details XXXX
 #'
 #' @param XXXX
 #' 
@@ -34,11 +33,12 @@ crop.retangular.roi <- function(dmat, left.idx.start=NULL, right.idx.start=NULL,
   }
   
   if( (!is.null(left.idx.start)) & (!is.null(right.idx.start)) & (!is.null(top.idx.start)) & (!is.null(bot.idx.start)) ){
-    width  <- right.idx.start - left.idx.start + 1
-    height <- bot.idx.start - top.idx.start + 1
+    width  <- right.idx.start - left.idx.start + 1 # + 2????
+    height <- bot.idx.start - top.idx.start + 1    # + 2????
     
     if(roi.type=="inner") {
       cropped.dmat <- Crop_Retangular_ROI(cropped.dmat, Xstart_index = left.idx.start, Ystart_index = top.idx.start, Width = width, Height = height)
+      #cropped.dmat <- cropped.dmat[top.idx.start:bot.idx.start, left.idx.start:right.idx.start]
     }
     
     if(roi.type=="outer") {
