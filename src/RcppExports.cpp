@@ -46,6 +46,17 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// CCF_Test1
+void CCF_Test1(NumericMatrix X, NumericMatrix H);
+RcppExport SEXP feature2_CCF_Test1(SEXP XSEXP, SEXP HSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type X(XSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type H(HSEXP);
+    CCF_Test1(X, H);
+    return R_NilValue;
+END_RCPP
+}
 // Areal_CCF
 void Areal_CCF(NumericMatrix dmat1, NumericMatrix dmat2, std::string bitdepth);
 RcppExport SEXP feature2_Areal_CCF(SEXP dmat1SEXP, SEXP dmat2SEXP, SEXP bitdepthSEXP) {
@@ -247,6 +258,32 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// RollColumns
+NumericMatrix RollColumns(NumericMatrix dmat, std::string direction, unsigned int n);
+RcppExport SEXP feature2_RollColumns(SEXP dmatSEXP, SEXP directionSEXP, SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< std::string >::type direction(directionSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type n(nSEXP);
+    __result = Rcpp::wrap(RollColumns(dmat, direction, n));
+    return __result;
+END_RCPP
+}
+// RollRows
+NumericMatrix RollRows(NumericMatrix dmat, std::string direction, unsigned int n);
+RcppExport SEXP feature2_RollRows(SEXP dmatSEXP, SEXP directionSEXP, SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< std::string >::type direction(directionSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type n(nSEXP);
+    __result = Rcpp::wrap(RollRows(dmat, direction, n));
+    return __result;
+END_RCPP
+}
 // Sobel
 NumericMatrix Sobel(NumericMatrix dmat, std::string bitdepth, int ddepth, int dx, int dy, int ksize, double scale, double delta, int borderType);
 RcppExport SEXP feature2_Sobel(SEXP dmatSEXP, SEXP bitdepthSEXP, SEXP ddepthSEXP, SEXP dxSEXP, SEXP dySEXP, SEXP ksizeSEXP, SEXP scaleSEXP, SEXP deltaSEXP, SEXP borderTypeSEXP) {
@@ -263,6 +300,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
     Rcpp::traits::input_parameter< int >::type borderType(borderTypeSEXP);
     __result = Rcpp::wrap(Sobel(dmat, bitdepth, ddepth, dx, dy, ksize, scale, delta, borderType));
+    return __result;
+END_RCPP
+}
+// TemplateMatchingTest
+NumericMatrix TemplateMatchingTest(NumericMatrix dmat, NumericMatrix tmplte);
+RcppExport SEXP feature2_TemplateMatchingTest(SEXP dmatSEXP, SEXP tmplteSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type tmplte(tmplteSEXP);
+    __result = Rcpp::wrap(TemplateMatchingTest(dmat, tmplte));
     return __result;
 END_RCPP
 }

@@ -13,6 +13,10 @@ borderTypeCode <- function(borderType) {
     .Call('feature2_borderTypeCode', PACKAGE = 'feature2', borderType)
 }
 
+CCF_Test1 <- function(X, H) {
+    invisible(.Call('feature2_CCF_Test1', PACKAGE = 'feature2', X, H))
+}
+
 Areal_CCF <- function(dmat1, dmat2, bitdepth) {
     invisible(.Call('feature2_Areal_CCF', PACKAGE = 'feature2', dmat1, dmat2, bitdepth))
 }
@@ -77,8 +81,20 @@ Resize <- function(dmat, num_rows, num_cols) {
     .Call('feature2_Resize', PACKAGE = 'feature2', dmat, num_rows, num_cols)
 }
 
+RollColumns <- function(dmat, direction, n) {
+    .Call('feature2_RollColumns', PACKAGE = 'feature2', dmat, direction, n)
+}
+
+RollRows <- function(dmat, direction, n) {
+    .Call('feature2_RollRows', PACKAGE = 'feature2', dmat, direction, n)
+}
+
 Sobel <- function(dmat, bitdepth, ddepth, dx, dy, ksize = 3L, scale = 1.0, delta = 0.0, borderType = 4L) {
     .Call('feature2_Sobel', PACKAGE = 'feature2', dmat, bitdepth, ddepth, dx, dy, ksize, scale, delta, borderType)
+}
+
+TemplateMatchingTest <- function(dmat, tmplte) {
+    .Call('feature2_TemplateMatchingTest', PACKAGE = 'feature2', dmat, tmplte)
 }
 
 vec2mat <- function(row_idxs, col_idxs, mat_elems, num_rows, num_cols) {
