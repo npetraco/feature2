@@ -1,6 +1,6 @@
 #--------------------------------------------
 #' @title plot3D.sip
-#' @description 3D plot of a surface, image or points. 
+#' @description 3D plot of a surface, image or points (sip). 
 #' 
 #' @details 3D plot  of a surface image or points. Just send in XXXX. Some type of downsampling or decimation 
 #' is usually required so that the surface can be rendered fast. This function leverages openCV functionality 
@@ -13,6 +13,10 @@
 #' @param num.slices  Number of points desired in the y-direction.
 #' @param aspect      Aspect ratios
 #' @param plot.type   "points" or "surface"
+#' @param x.phys.min  If not NULL, min of scale for x-axis
+#' @param x.phys.max  If not NULL, max of scale for x-axis
+#' @param y.phys.min  If not NULL, min of scale for y-axis
+#' @param y.phys.max  If not NULL, max of scale for y-axis
 #' 
 #' @return a 3D plot.
 #' 
@@ -20,9 +24,9 @@
 #'
 #' @examples XXXX
 #--------------------------------------------
-plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2), plot.type="points", x.phys.max=NULL, y.phys.max=NULL) {
+plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2), plot.type="points", x.phys.max=NULL, x.phys.min=NULL, y.phys.min=NULL, y.phys.max=NULL) {
   
-  surf.mat<-dmat
+  #surf.mat<-dmat
   
   #Downsample the surface points for faster plotting:
   if(is.null(num.x.pts)) {
@@ -46,15 +50,25 @@ plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2),
     }
   }
   
-  decimated.surf.mat <- Resize(surf.mat, num.slices, num.x.pts)
+  decimated.surf.mat <- Resize(dmat, num.slices, num.x.pts)
   xaxis <- 1:ncol(decimated.surf.mat)
   yaxis <- 1:nrow(decimated.surf.mat)
   
+  #Scales for the x,y if desired:
   if(!is.null(x.phys.max)) {
-    xaxis.phys <- seq(0, x.phys.max, length.out=length(xaxis))
+    if(!is.null(x.phys.min)) {
+      xaxis.phys <- seq(x.phys.min, x.phys.max, length.out=length(xaxis))
+    } else { #Start from 0 if no x.phys.min is specified
+      xaxis.phys <- seq(0, x.phys.max, length.out=length(xaxis))
+    }
   }
+  
   if(!is.null(y.phys.max)) {
-    yaxis.phys <- seq(0, y.phys.max, length.out=length(yaxis))
+    if(!is.null(y.phys.min)) {
+      yaxis.phys <- seq(y.phys.min, y.phys.max, length.out=length(yaxis))
+    } else { #Start from 0 if no y.phys.min is specified
+      yaxis.phys <- seq(0, y.phys.max, length.out=length(yaxis))
+    }
   }
   
   if(plot.type=="points"){
@@ -73,9 +87,7 @@ plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2),
     
     nbcol = 256
     color = rev(rainbow(nbcol, start = 0/6, end = 2/6)) #Color band width
-    #zcol  = cut(t(decimated.surf.mat), nbcol)   
-    zcol  = cut(decimated.surf.mat, nbcol)   
-    #persp3d(xaxis, yaxis, t(decimated.surf.mat), aspect=aspect, col=color[zcol])
+    zcol  = cut(decimated.surf.mat, nbcol)
     
     if( (!is.null(x.phys.max)) & (!is.null(y.phys.max)) ) {
       #Swap x and y axes to put origin in top left corner (image coordinates)
@@ -84,10 +96,6 @@ plot3D.sip<-function(dmat, num.x.pts=NULL, num.slices=NULL, aspect=c(1,0.3,0.2),
       #Swap x and y axes to put origin in top left corner (image coordinates)
       rgl.plot.obj <- persp3d(yaxis, xaxis, decimated.surf.mat, aspect=aspect, col=color[zcol])      
     }
-    
-    #coords<-cbind(expand.grid(X=xaxis, Y=yaxis), as.numeric(t(decimated.surf.mat)))
-    #return(list(rgl.plot.obj, coords))
-    #return(rgl.plot.obj)
     
   } else {
     print("Pick surface or points.")

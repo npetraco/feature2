@@ -46,17 +46,6 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
-// CCF_Test1
-void CCF_Test1(NumericMatrix X, NumericMatrix H);
-RcppExport SEXP feature2_CCF_Test1(SEXP XSEXP, SEXP HSEXP) {
-BEGIN_RCPP
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< NumericMatrix >::type X(XSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type H(HSEXP);
-    CCF_Test1(X, H);
-    return R_NilValue;
-END_RCPP
-}
 // CCF_2D
 NumericMatrix CCF_2D(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth);
 RcppExport SEXP feature2_CCF_2D(SEXP dmatSEXP, SEXP tmplteSEXP, SEXP x_maxlagSEXP, SEXP y_maxlagSEXP, SEXP bitdepthSEXP) {
@@ -303,30 +292,6 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
     Rcpp::traits::input_parameter< int >::type borderType(borderTypeSEXP);
     __result = Rcpp::wrap(Sobel(dmat, bitdepth, ddepth, dx, dy, ksize, scale, delta, borderType));
-    return __result;
-END_RCPP
-}
-// TemplateMatchingTest
-NumericMatrix TemplateMatchingTest(NumericMatrix dmat, NumericMatrix tmplte);
-RcppExport SEXP feature2_TemplateMatchingTest(SEXP dmatSEXP, SEXP tmplteSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type tmplte(tmplteSEXP);
-    __result = Rcpp::wrap(TemplateMatchingTest(dmat, tmplte));
-    return __result;
-END_RCPP
-}
-// TemplateMatchingTest2
-NumericMatrix TemplateMatchingTest2(NumericMatrix dmat, NumericMatrix tmplte);
-RcppExport SEXP feature2_TemplateMatchingTest2(SEXP dmatSEXP, SEXP tmplteSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type tmplte(tmplteSEXP);
-    __result = Rcpp::wrap(TemplateMatchingTest2(dmat, tmplte));
     return __result;
 END_RCPP
 }
