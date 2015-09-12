@@ -57,16 +57,19 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// Areal_CCF
-void Areal_CCF(NumericMatrix dmat1, NumericMatrix dmat2, std::string bitdepth);
-RcppExport SEXP feature2_Areal_CCF(SEXP dmat1SEXP, SEXP dmat2SEXP, SEXP bitdepthSEXP) {
+// CCF_2D
+NumericMatrix CCF_2D(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth);
+RcppExport SEXP feature2_CCF_2D(SEXP dmatSEXP, SEXP tmplteSEXP, SEXP x_maxlagSEXP, SEXP y_maxlagSEXP, SEXP bitdepthSEXP) {
 BEGIN_RCPP
+    Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< NumericMatrix >::type dmat1(dmat1SEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type dmat2(dmat2SEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type tmplte(tmplteSEXP);
+    Rcpp::traits::input_parameter< int >::type x_maxlag(x_maxlagSEXP);
+    Rcpp::traits::input_parameter< int >::type y_maxlag(y_maxlagSEXP);
     Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
-    Areal_CCF(dmat1, dmat2, bitdepth);
-    return R_NilValue;
+    __result = Rcpp::wrap(CCF_2D(dmat, tmplte, x_maxlag, y_maxlag, bitdepth));
+    return __result;
 END_RCPP
 }
 // testscale
@@ -312,6 +315,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
     Rcpp::traits::input_parameter< NumericMatrix >::type tmplte(tmplteSEXP);
     __result = Rcpp::wrap(TemplateMatchingTest(dmat, tmplte));
+    return __result;
+END_RCPP
+}
+// TemplateMatchingTest2
+NumericMatrix TemplateMatchingTest2(NumericMatrix dmat, NumericMatrix tmplte);
+RcppExport SEXP feature2_TemplateMatchingTest2(SEXP dmatSEXP, SEXP tmplteSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type tmplte(tmplteSEXP);
+    __result = Rcpp::wrap(TemplateMatchingTest2(dmat, tmplte));
     return __result;
 END_RCPP
 }
