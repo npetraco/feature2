@@ -13,8 +13,8 @@ borderTypeCode <- function(borderType) {
     .Call('feature2_borderTypeCode', PACKAGE = 'feature2', borderType)
 }
 
-CCF_2D <- function(dmat, tmplte, x_maxlag, y_maxlag, bitdepth) {
-    .Call('feature2_CCF_2D', PACKAGE = 'feature2', dmat, tmplte, x_maxlag, y_maxlag, bitdepth)
+CCF_2D_v2 <- function(dmat, tmplte, x_maxlag, y_maxlag, bitdepth) {
+    .Call('feature2_CCF_2D_v2', PACKAGE = 'feature2', dmat, tmplte, x_maxlag, y_maxlag, bitdepth)
 }
 
 testscale <- function(dmat, bitdepth, printQ = FALSE) {
@@ -55,6 +55,10 @@ FindHoles <- function(dmat_mask, mode, approx_method, big_hole_tol) {
 
 GaussianBlur2D <- function(dmat, bitdepth, num_rows_kernel, num_cols_kernel, sigmaX = 0.0, sigmaY = 0.0, borderType = "default") {
     .Call('feature2_GaussianBlur2D', PACKAGE = 'feature2', dmat, bitdepth, num_rows_kernel, num_cols_kernel, sigmaX, sigmaY, borderType)
+}
+
+Pad_NumericMatrix <- function(dmat, top, bottom, left, right, border_type, value) {
+    .Call('feature2_Pad_NumericMatrix', PACKAGE = 'feature2', dmat, top, bottom, left, right, border_type, value)
 }
 
 numvec_to_python <- function(name, x) {

@@ -46,9 +46,9 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
-// CCF_2D
-NumericMatrix CCF_2D(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth);
-RcppExport SEXP feature2_CCF_2D(SEXP dmatSEXP, SEXP tmplteSEXP, SEXP x_maxlagSEXP, SEXP y_maxlagSEXP, SEXP bitdepthSEXP) {
+// CCF_2D_v2
+NumericMatrix CCF_2D_v2(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth);
+RcppExport SEXP feature2_CCF_2D_v2(SEXP dmatSEXP, SEXP tmplteSEXP, SEXP x_maxlagSEXP, SEXP y_maxlagSEXP, SEXP bitdepthSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
@@ -57,7 +57,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type x_maxlag(x_maxlagSEXP);
     Rcpp::traits::input_parameter< int >::type y_maxlag(y_maxlagSEXP);
     Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
-    __result = Rcpp::wrap(CCF_2D(dmat, tmplte, x_maxlag, y_maxlag, bitdepth));
+    __result = Rcpp::wrap(CCF_2D_v2(dmat, tmplte, x_maxlag, y_maxlag, bitdepth));
     return __result;
 END_RCPP
 }
@@ -195,6 +195,23 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type sigmaY(sigmaYSEXP);
     Rcpp::traits::input_parameter< std::string >::type borderType(borderTypeSEXP);
     __result = Rcpp::wrap(GaussianBlur2D(dmat, bitdepth, num_rows_kernel, num_cols_kernel, sigmaX, sigmaY, borderType));
+    return __result;
+END_RCPP
+}
+// Pad_NumericMatrix
+NumericMatrix Pad_NumericMatrix(NumericMatrix dmat, int top, int bottom, int left, int right, std::string border_type, double value);
+RcppExport SEXP feature2_Pad_NumericMatrix(SEXP dmatSEXP, SEXP topSEXP, SEXP bottomSEXP, SEXP leftSEXP, SEXP rightSEXP, SEXP border_typeSEXP, SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< int >::type top(topSEXP);
+    Rcpp::traits::input_parameter< int >::type bottom(bottomSEXP);
+    Rcpp::traits::input_parameter< int >::type left(leftSEXP);
+    Rcpp::traits::input_parameter< int >::type right(rightSEXP);
+    Rcpp::traits::input_parameter< std::string >::type border_type(border_typeSEXP);
+    Rcpp::traits::input_parameter< double >::type value(valueSEXP);
+    __result = Rcpp::wrap(Pad_NumericMatrix(dmat, top, bottom, left, right, border_type, value));
     return __result;
 END_RCPP
 }
