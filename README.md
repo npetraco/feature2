@@ -1,6 +1,6 @@
 # feature2 
 
-A small R package to pull in handy routenes from openCV (and eventually vlfeat 
+A small R package to pull in handy routines from openCV (and eventually vlfeat 
 and scikit-image) for processing of 3D surfaces, typically obtained from a 
 3D microscope. Though this library is independent of the x3pr R package for 
 basic x3p data format handeling, we are designing it with the x3p format in 

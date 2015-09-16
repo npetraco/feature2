@@ -46,9 +46,9 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
-// CCF_2D_v2
-NumericMatrix CCF_2D_v2(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth);
-RcppExport SEXP feature2_CCF_2D_v2(SEXP dmatSEXP, SEXP tmplteSEXP, SEXP x_maxlagSEXP, SEXP y_maxlagSEXP, SEXP bitdepthSEXP) {
+// CCF_2D
+NumericMatrix CCF_2D(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth);
+RcppExport SEXP feature2_CCF_2D(SEXP dmatSEXP, SEXP tmplteSEXP, SEXP x_maxlagSEXP, SEXP y_maxlagSEXP, SEXP bitdepthSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
@@ -57,7 +57,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type x_maxlag(x_maxlagSEXP);
     Rcpp::traits::input_parameter< int >::type y_maxlag(y_maxlagSEXP);
     Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
-    __result = Rcpp::wrap(CCF_2D_v2(dmat, tmplte, x_maxlag, y_maxlag, bitdepth));
+    __result = Rcpp::wrap(CCF_2D(dmat, tmplte, x_maxlag, y_maxlag, bitdepth));
     return __result;
 END_RCPP
 }

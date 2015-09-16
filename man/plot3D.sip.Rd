@@ -5,7 +5,8 @@
 \title{plot3D.sip}
 \usage{
 plot3D.sip(dmat, num.x.pts = NULL, num.slices = NULL, aspect = c(1, 0.3,
-  0.2), plot.type = "points")
+  0.2), plot.type = "points", x.phys.max = NULL, x.phys.min = NULL,
+  y.phys.min = NULL, y.phys.max = NULL)
 }
 \arguments{
 \item{dmat}{A matrix of points.}
@@ -17,12 +18,20 @@ plot3D.sip(dmat, num.x.pts = NULL, num.slices = NULL, aspect = c(1, 0.3,
 \item{aspect}{Aspect ratios}
 
 \item{plot.type}{"points" or "surface"}
+
+\item{x.phys.max}{If not NULL, max of scale for x-axis}
+
+\item{x.phys.min}{If not NULL, min of scale for x-axis}
+
+\item{y.phys.min}{If not NULL, min of scale for y-axis}
+
+\item{y.phys.max}{If not NULL, max of scale for y-axis}
 }
 \value{
 a 3D plot.
 }
 \description{
-3D plot of a surface, image or points.
+3D plot of a surface, image or points (sip).
 }
 \details{
 3D plot  of a surface image or points. Just send in XXXX. Some type of downsampling or decimation

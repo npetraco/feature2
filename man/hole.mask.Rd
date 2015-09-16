@@ -4,7 +4,7 @@
 \alias{hole.mask}
 \title{hole.mask}
 \usage{
-hole.mask(dmat)
+hole.mask(dmat, big.hole.tol.percent)
 }
 \arguments{
 \item{XXXX}{}
