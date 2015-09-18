@@ -2,7 +2,7 @@
 #' @title coords2mat
 #' @description Convert a vector of z's (heights, intensities, etc.) to a matrix
 #' 
-#' @details XXXX
+#' @details Convert a vector of z's (heights, intensities, etc.) to a matrix 
 #'
 #' @param XXXX
 #' 
