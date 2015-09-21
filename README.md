@@ -31,4 +31,4 @@ that yet, and probably won't for a while. The package is under heavy
 development.) It should compile in Linux with clang installed and some 
 fiddeling with the compiler/linker flags in Makevars. Compiling with gcc 
 should only take a little extra coaxing. We intend that this package will work 
-with Windows, OSX and Linux, but that is still some time down the road.
+with Windows, OSX and Linux, but that is still some time in the future.
