@@ -182,7 +182,7 @@ NumericMatrix CCF_2D(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int
   
   //Recalculate the dims of the query now that all padding is done:
   M = odmat.rows;
-  N = odmat.cols;
+  N = odmat.cols+10;
   
   Rcout << "==========After All Padding===========" << endl;
   Rcout << "Query rows: " << M << endl;
