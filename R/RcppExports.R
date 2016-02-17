@@ -99,6 +99,10 @@ lewis3 <- function(u_idxs, v_idxs, nz_idxs, ff, offset1, offset2, offset3) {
     .Call('feature2_lewis3', PACKAGE = 'feature2', u_idxs, v_idxs, nz_idxs, ff, offset1, offset2, offset3)
 }
 
+lewis4 <- function(num_svals, nz_idxs, ff, offset1, offset2, offset3) {
+    .Call('feature2_lewis4', PACKAGE = 'feature2', num_svals, nz_idxs, ff, offset1, offset2, offset3)
+}
+
 Pad_NumericMatrix <- function(dmat, top, bottom, left, right, border_type, value) {
     .Call('feature2_Pad_NumericMatrix', PACKAGE = 'feature2', dmat, top, bottom, left, right, border_type, value)
 }

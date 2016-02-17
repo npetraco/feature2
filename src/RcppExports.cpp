@@ -215,6 +215,22 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// lewis4
+NumericMatrix lewis4(int num_svals, IntegerVector nz_idxs, NumericVector ff, int offset1, int offset2, int offset3);
+RcppExport SEXP feature2_lewis4(SEXP num_svalsSEXP, SEXP nz_idxsSEXP, SEXP ffSEXP, SEXP offset1SEXP, SEXP offset2SEXP, SEXP offset3SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< int >::type num_svals(num_svalsSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type nz_idxs(nz_idxsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type ff(ffSEXP);
+    Rcpp::traits::input_parameter< int >::type offset1(offset1SEXP);
+    Rcpp::traits::input_parameter< int >::type offset2(offset2SEXP);
+    Rcpp::traits::input_parameter< int >::type offset3(offset3SEXP);
+    __result = Rcpp::wrap(lewis4(num_svals, nz_idxs, ff, offset1, offset2, offset3));
+    return __result;
+END_RCPP
+}
 // Pad_NumericMatrix
 NumericMatrix Pad_NumericMatrix(NumericMatrix dmat, int top, int bottom, int left, int right, std::string border_type, double value);
 RcppExport SEXP feature2_Pad_NumericMatrix(SEXP dmatSEXP, SEXP topSEXP, SEXP bottomSEXP, SEXP leftSEXP, SEXP rightSEXP, SEXP border_typeSEXP, SEXP valueSEXP) {
