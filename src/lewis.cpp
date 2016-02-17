@@ -12,11 +12,10 @@ using namespace std;
 //Lewis's routine to compute s and s^2 troublesome terms
 //---------------------------------------------------------------------
 // [[Rcpp::export]]
-NumericVector lewis3(IntegerVector u_idxs, IntegerVector v_idxs, IntegerVector nz_idxs, NumericVector ff, 
+NumericMatrix lewis3(IntegerVector u_idxs, IntegerVector v_idxs, IntegerVector nz_idxs, NumericVector ff, 
             int offset1, int offset2, int offset3) {
   
-  NumericVector s_vals(u_idxs.length());
-  NumericVector s_sq_vals(u_idxs.length());
+  NumericMatrix svals(u_idxs.length(),2);
 
   for(int i = 0; i<nz_idxs.length(); i++) {
     
@@ -24,10 +23,10 @@ NumericVector lewis3(IntegerVector u_idxs, IntegerVector v_idxs, IntegerVector n
     int sidx2 = nz_idxs(i) - offset2;
     int sidx3 = nz_idxs(i) - offset3;
     
-    s_vals(nz_idxs(i)) = ff(i) + s_vals(sidx1) + s_vals(sidx2) - s_vals(sidx3);
-    s_sq_vals(nz_idxs(i)) = pow(ff(i),2) + s_sq_vals(sidx1) + s_sq_vals(sidx2) - s_sq_vals(sidx3);
+    svals(nz_idxs(i),0) = ff(i) + svals(sidx1,0) + svals(sidx2,0) - svals(sidx3,0);
+    svals(nz_idxs(i),1) = pow(ff(i),2) + svals(sidx1,1) + svals(sidx2,1) - svals(sidx3,1);
   }
 
-  return s_vals;
+  return svals;
   
 }

@@ -199,7 +199,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // lewis3
-NumericVector lewis3(IntegerVector u_idxs, IntegerVector v_idxs, IntegerVector nz_idxs, NumericVector ff, int offset1, int offset2, int offset3);
+NumericMatrix lewis3(IntegerVector u_idxs, IntegerVector v_idxs, IntegerVector nz_idxs, NumericVector ff, int offset1, int offset2, int offset3);
 RcppExport SEXP feature2_lewis3(SEXP u_idxsSEXP, SEXP v_idxsSEXP, SEXP nz_idxsSEXP, SEXP ffSEXP, SEXP offset1SEXP, SEXP offset2SEXP, SEXP offset3SEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
