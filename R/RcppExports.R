@@ -95,6 +95,10 @@ GaussianBlur2D <- function(dmat, bitdepth, num_rows_kernel, num_cols_kernel, sig
     .Call('feature2_GaussianBlur2D', PACKAGE = 'feature2', dmat, bitdepth, num_rows_kernel, num_cols_kernel, sigmaX, sigmaY, borderType)
 }
 
+lewis3 <- function(u_idxs, v_idxs, nz_idxs, ff, offset1, offset2, offset3) {
+    .Call('feature2_lewis3', PACKAGE = 'feature2', u_idxs, v_idxs, nz_idxs, ff, offset1, offset2, offset3)
+}
+
 Pad_NumericMatrix <- function(dmat, top, bottom, left, right, border_type, value) {
     .Call('feature2_Pad_NumericMatrix', PACKAGE = 'feature2', dmat, top, bottom, left, right, border_type, value)
 }
