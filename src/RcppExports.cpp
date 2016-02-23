@@ -46,6 +46,21 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// CCF_2D_mod
+List CCF_2D_mod(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth);
+RcppExport SEXP feature2_CCF_2D_mod(SEXP dmatSEXP, SEXP tmplteSEXP, SEXP x_maxlagSEXP, SEXP y_maxlagSEXP, SEXP bitdepthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type tmplte(tmplteSEXP);
+    Rcpp::traits::input_parameter< int >::type x_maxlag(x_maxlagSEXP);
+    Rcpp::traits::input_parameter< int >::type y_maxlag(y_maxlagSEXP);
+    Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
+    __result = Rcpp::wrap(CCF_2D_mod(dmat, tmplte, x_maxlag, y_maxlag, bitdepth));
+    return __result;
+END_RCPP
+}
 // CCF_2D
 NumericMatrix CCF_2D(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth);
 RcppExport SEXP feature2_CCF_2D(SEXP dmatSEXP, SEXP tmplteSEXP, SEXP x_maxlagSEXP, SEXP y_maxlagSEXP, SEXP bitdepthSEXP) {
@@ -58,6 +73,17 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type y_maxlag(y_maxlagSEXP);
     Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
     __result = Rcpp::wrap(CCF_2D(dmat, tmplte, x_maxlag, y_maxlag, bitdepth));
+    return __result;
+END_RCPP
+}
+// Center2D
+NumericMatrix Center2D(NumericMatrix dmat);
+RcppExport SEXP feature2_Center2D(SEXP dmatSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    __result = Rcpp::wrap(Center2D(dmat));
     return __result;
 END_RCPP
 }
@@ -198,26 +224,9 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
-// lewis3
-NumericMatrix lewis3(IntegerVector u_idxs, IntegerVector v_idxs, IntegerVector nz_idxs, NumericVector ff, int offset1, int offset2, int offset3);
-RcppExport SEXP feature2_lewis3(SEXP u_idxsSEXP, SEXP v_idxsSEXP, SEXP nz_idxsSEXP, SEXP ffSEXP, SEXP offset1SEXP, SEXP offset2SEXP, SEXP offset3SEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< IntegerVector >::type u_idxs(u_idxsSEXP);
-    Rcpp::traits::input_parameter< IntegerVector >::type v_idxs(v_idxsSEXP);
-    Rcpp::traits::input_parameter< IntegerVector >::type nz_idxs(nz_idxsSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type ff(ffSEXP);
-    Rcpp::traits::input_parameter< int >::type offset1(offset1SEXP);
-    Rcpp::traits::input_parameter< int >::type offset2(offset2SEXP);
-    Rcpp::traits::input_parameter< int >::type offset3(offset3SEXP);
-    __result = Rcpp::wrap(lewis3(u_idxs, v_idxs, nz_idxs, ff, offset1, offset2, offset3));
-    return __result;
-END_RCPP
-}
-// lewis4
-NumericMatrix lewis4(int num_svals, IntegerVector nz_idxs, NumericVector ff, int offset1, int offset2, int offset3);
-RcppExport SEXP feature2_lewis4(SEXP num_svalsSEXP, SEXP nz_idxsSEXP, SEXP ffSEXP, SEXP offset1SEXP, SEXP offset2SEXP, SEXP offset3SEXP) {
+// lewis
+NumericMatrix lewis(int num_svals, IntegerVector nz_idxs, NumericVector ff, int offset1, int offset2, int offset3);
+RcppExport SEXP feature2_lewis(SEXP num_svalsSEXP, SEXP nz_idxsSEXP, SEXP ffSEXP, SEXP offset1SEXP, SEXP offset2SEXP, SEXP offset3SEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
@@ -227,8 +236,19 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type offset1(offset1SEXP);
     Rcpp::traits::input_parameter< int >::type offset2(offset2SEXP);
     Rcpp::traits::input_parameter< int >::type offset3(offset3SEXP);
-    __result = Rcpp::wrap(lewis4(num_svals, nz_idxs, ff, offset1, offset2, offset3));
+    __result = Rcpp::wrap(lewis(num_svals, nz_idxs, ff, offset1, offset2, offset3));
     return __result;
+END_RCPP
+}
+// numerator_trick
+void numerator_trick(NumericMatrix A, NumericMatrix B);
+RcppExport SEXP feature2_numerator_trick(SEXP ASEXP, SEXP BSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
+    numerator_trick(A, B);
+    return R_NilValue;
 END_RCPP
 }
 // Pad_NumericMatrix
@@ -300,6 +320,17 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// Reverse_Mat
+arma::mat Reverse_Mat(NumericMatrix dmat);
+RcppExport SEXP feature2_Reverse_Mat(SEXP dmatSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat(dmatSEXP);
+    __result = Rcpp::wrap(Reverse_Mat(dmat));
+    return __result;
+END_RCPP
+}
 // RollColumns
 NumericMatrix RollColumns(NumericMatrix dmat, std::string direction, unsigned int n);
 RcppExport SEXP feature2_RollColumns(SEXP dmatSEXP, SEXP directionSEXP, SEXP nSEXP) {
@@ -342,6 +373,19 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
     Rcpp::traits::input_parameter< int >::type borderType(borderTypeSEXP);
     __result = Rcpp::wrap(Sobel(dmat, bitdepth, ddepth, dx, dy, ksize, scale, delta, borderType));
+    return __result;
+END_RCPP
+}
+// TemplateMatch
+NumericMatrix TemplateMatch(NumericMatrix dmat_fixed, NumericMatrix template_mov, std::string bitdepth);
+RcppExport SEXP feature2_TemplateMatch(SEXP dmat_fixedSEXP, SEXP template_movSEXP, SEXP bitdepthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dmat_fixed(dmat_fixedSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type template_mov(template_movSEXP);
+    Rcpp::traits::input_parameter< std::string >::type bitdepth(bitdepthSEXP);
+    __result = Rcpp::wrap(TemplateMatch(dmat_fixed, template_mov, bitdepth));
     return __result;
 END_RCPP
 }

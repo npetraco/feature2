@@ -45,7 +45,7 @@ using namespace cv;
 using namespace std;
 
 // [[Rcpp::export]]
-NumericMatrix CCF_2D(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth) {
+List CCF_2D_mod(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int y_maxlag, std::string bitdepth) {
   
   int M = dmat.nrow();
   int N = dmat.ncol();
@@ -216,9 +216,13 @@ NumericMatrix CCF_2D(NumericMatrix dmat, NumericMatrix tmplte, int x_maxlag, int
   Rcout << maxVal << " is highest correlation at x,y-lag: " << maxLoc << endl;
   
   NumericMatrix result(openCVMat2NumericMatrix(oresult));
+  NumericMatrix dmat_padded(openCVMat2NumericMatrix(odmat));
+  NumericMatrix tmplte_padded(openCVMat2NumericMatrix(otmplte));
   //colnames(result) = IntegerVector(seq(-(oresult.cols-1)/2, (oresult.cols-1)/2));
   //rownames(result) = IntegerVector(seq(-(oresult.rows-1)/2, (oresult.rows-1)/2));
   
-  return result;
+  return List::create(Named("result") = result,
+                      Named("padded_dmat") = dmat_padded,
+                      Named("padded_tmplt") = tmplte_padded);
 
 }
