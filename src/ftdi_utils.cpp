@@ -78,6 +78,106 @@ void error()
   exit(1);
 }
 
+//
+uint8_t recv_byte()
+{
+  uint8_t data;
+  while (1) {
+    int rc = ftdi_read_data(&ftdic, &data, 1);
+    if (rc < 0) {
+      //fprintf(stderr, "Read error.\n");
+      Rcpp::Rcerr << "Read error." << endl;
+      error();
+    }
+    if (rc == 1)
+      break;
+    usleep(100);
+  }
+  return data;
+}
+
+//
+void send_byte(uint8_t data)
+{
+  int rc = ftdi_write_data(&ftdic, &data, 1);
+  if (rc != 1) {
+    //fprintf(stderr, "Write error (single byte, rc=%d, expected %d).\n", rc, 1);
+    Rcpp::Rcerr << "Write error (single byte, rc = " << rc << ", expected: " << 1 << endl; 
+    error();
+  }
+}
+
+// ??
+int get_cdone()
+{
+  uint8_t data;
+  send_byte(0x81);
+  data = recv_byte();
+  // ADBUS6 (GPIOL2)
+  return (data & 0x40) != 0;
+}
+
+// ??
+void set_gpio(int a, int b, int c)
+{
+  // sets two bytes - intial led_values and i/o direction
+  
+  // what does the one indicate?
+  // one is the clock ... maybe set high by default?
+  uint8_t gpio = 1;
+  
+  if (a) {
+    // (GPIOL0)
+    gpio |= 0x10;    // 1 << 4
+  }
+  if (b) {
+    // (GPIOL1)
+    gpio |= 0x20;    // 1 << 5
+  }
+  if (c) {
+    // (GPIOL2)
+    gpio |= 0x40;    // 1 << 6
+  }
+  // GPIOL3 not connected to fpga.
+  
+  /*
+  At this point, the MPSSE is ready for commands .  Each command consists of an
+  op - code followed by any necessary parameters or data.
+  The following commands are used to set the initial direction and logic state of
+  the pins when first entering MPSSE mode. They are also use to set or read
+  GPIO pins.
+  0x80 is a op-code to set initial led_values and direction.
+  */
+  
+  send_byte(0x80);       // must be a command,,,
+  send_byte(gpio);
+  
+  // 0xfb.toString(2);
+  // 0xFB = "11111011"  should be correct enables miso as only input
+  send_byte(0xFB);        // this is the direction a bit mask?
+}
+
+// ??
+void send_spi(uint8_t *data, int n)
+{
+  if (n < 1)
+    return;
+  
+  // max size check...
+  // 3.3.2 Clock Data Bytes Out on - ve clo ck edge MSB first  (no read) Use if CLK starts at '0
+  
+  send_byte(0x11);
+  send_byte(n-1);
+  send_byte((n-1) >> 8);
+  
+  int rc = ftdi_write_data(&ftdic, data, n);
+  if (rc != n) {
+    //fprintf(stderr, "Write error (chunk, rc=%d, expected %d).\n", rc, n);
+    Rcpp::Rcerr << "Write error (chunk, rc = " << rc << ", expected: " << n << endl;
+    error();
+  }
+}
+
 // Send in data as a string literal of 8 bits:
 // [[Rcpp::export]]
 void send_byte_string(std::string data_byte_as_string)
@@ -100,6 +200,7 @@ void ftdi_event() {
   Rcpp::Rcerr << "Init... Hi!" << endl;
   
   ftdi_set_interface(&ftdic, ifnum);
+  //Rcpp::Rcerr << "Got here..." << endl;
   
   if( ftdi_usb_open(&ftdic, 0x0403, 0x6010) ) {
     //fprintf(stderr, "Can't find iCE FTDI USB device (vedor_id 0x0403, device_id 0x6010).\n");
@@ -133,6 +234,8 @@ void ftdi_event() {
     error();
   }
   
+  Rcpp::Rcerr << "Latency timer get-ed." << endl;
+  
   //??
   /* 1 is the fastest polling, it means 1 kHz polling */
   if( ftdi_set_latency_timer(&ftdic, 1) < 0 ) {
@@ -142,6 +245,7 @@ void ftdi_event() {
   }
   
   ftdic_latency_set = true;
+  Rcpp::Rcerr << "Latency timer set." << endl;
   
   if( ftdi_set_bitmode(&ftdic, 0xff, BITMODE_MPSSE) < 0 ) {
     //fprintf(stderr, "Failed set BITMODE_MPSSE on iCE FTDI USB device.\n");
@@ -151,11 +255,55 @@ void ftdi_event() {
   
   Rcpp::Rcerr << "FTDI bitmode set." << endl;
   
+  // ??
+  // enable clock divide by 5
+  send_byte(0x8b);
+  
+  // ??
+  // set 6 MHz clock
+  send_byte(0x86);
+  send_byte(0x02);   // 1 or 2 MHz ?
+  send_byte(0x00);
+  
+  //fprintf(stderr, "cdone: %s\n", get_cdone() ? "high" : "low");
+  const char * hlm = get_cdone() ? "high" : "low";
+  Rcpp::Rcerr << "cdone #1: " << hlm << endl;
+  
+  // initialize data out
+  set_gpio(1, 1, 1);
+
+  hlm = get_cdone() ? "high" : "low";
+  Rcpp::Rcerr << "cdone #2: " << hlm << endl;
+  
+  int led_value = 1; // Light on??
+  uint8_t data[1];
+
+  //fprintf(stderr, "writing data led_value %d\n", led_value);
+  Rcpp::Rcerr << "writing data led_value: " << led_value << endl;
+  //led_value = !led_value;
+  
+  set_gpio(0, 1, 1);
+  
+  if(led_value == 1)
+    data[0] = 0xcc;
+  else if(led_value == 0)
+    data[0] = 0xdd;
+  
+  // write
+  send_spi( data, 1 );
+  
+  // deassert CS
+  set_gpio(1, 1, 1);
+  
+  //fprintf(stderr, "done\n");
+  Rcpp::Rcerr << "Done led data write." << endl;
+
   // Exit
   Rcpp::Rcerr << "Exiting..." << endl;
   ftdi_disable_bitbang(&ftdic);
   ftdi_usb_close(&ftdic);
   ftdi_deinit(&ftdic);
+  free(data);
   Rcpp::Rcerr << "Bye!" << endl;
   
 }
