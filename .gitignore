@@ -7,4 +7,5 @@ src/*.so
 src/*.dll
 old
 tests
+inst/extdata
 opencv2refman.pdf

@@ -207,21 +207,42 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// check_rx
-void check_rx();
-RcppExport SEXP feature2_check_rx() {
+// inputByteCheck
+void inputByteCheck(unsigned int abyte);
+RcppExport SEXP feature2_inputByteCheck(SEXP abyteSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    check_rx();
+    Rcpp::traits::input_parameter< unsigned int >::type abyte(abyteSEXP);
+    inputByteCheck(abyte);
     return R_NilValue;
 END_RCPP
 }
-// error
-void error();
-RcppExport SEXP feature2_error() {
+// inputStringByteCheck
+void inputStringByteCheck(std::string abyte_string);
+RcppExport SEXP feature2_inputStringByteCheck(SEXP abyte_stringSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    error();
+    Rcpp::traits::input_parameter< std::string >::type abyte_string(abyte_stringSEXP);
+    inputStringByteCheck(abyte_string);
+    return R_NilValue;
+END_RCPP
+}
+// send_byte_string
+void send_byte_string(std::string data_byte_as_string);
+RcppExport SEXP feature2_send_byte_string(SEXP data_byte_as_stringSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type data_byte_as_string(data_byte_as_stringSEXP);
+    send_byte_string(data_byte_as_string);
+    return R_NilValue;
+END_RCPP
+}
+// ftdi_event
+void ftdi_event();
+RcppExport SEXP feature2_ftdi_event() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    ftdi_event();
     return R_NilValue;
 END_RCPP
 }
