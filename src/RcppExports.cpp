@@ -207,43 +207,15 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// inputByteCheck
-void inputByteCheck(unsigned int abyte);
-RcppExport SEXP feature2_inputByteCheck(SEXP abyteSEXP) {
+// event
+int event(std::string init_swtch);
+RcppExport SEXP feature2_event(SEXP init_swtchSEXP) {
 BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< unsigned int >::type abyte(abyteSEXP);
-    inputByteCheck(abyte);
-    return R_NilValue;
-END_RCPP
-}
-// inputStringByteCheck
-void inputStringByteCheck(std::string abyte_string);
-RcppExport SEXP feature2_inputStringByteCheck(SEXP abyte_stringSEXP) {
-BEGIN_RCPP
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::string >::type abyte_string(abyte_stringSEXP);
-    inputStringByteCheck(abyte_string);
-    return R_NilValue;
-END_RCPP
-}
-// send_byte_string
-void send_byte_string(std::string data_byte_as_string);
-RcppExport SEXP feature2_send_byte_string(SEXP data_byte_as_stringSEXP) {
-BEGIN_RCPP
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::string >::type data_byte_as_string(data_byte_as_stringSEXP);
-    send_byte_string(data_byte_as_string);
-    return R_NilValue;
-END_RCPP
-}
-// ftdi_event
-void ftdi_event();
-RcppExport SEXP feature2_ftdi_event() {
-BEGIN_RCPP
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    ftdi_event();
-    return R_NilValue;
+    Rcpp::traits::input_parameter< std::string >::type init_swtch(init_swtchSEXP);
+    rcpp_result_gen = Rcpp::wrap(event(init_swtch));
+    return rcpp_result_gen;
 END_RCPP
 }
 // GaussianBlur2D

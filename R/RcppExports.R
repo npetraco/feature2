@@ -137,20 +137,8 @@ FindHoles <- function(dmat_mask, mode, approx_method, big_hole_tol) {
     .Call('feature2_FindHoles', PACKAGE = 'feature2', dmat_mask, mode, approx_method, big_hole_tol)
 }
 
-inputByteCheck <- function(abyte) {
-    invisible(.Call('feature2_inputByteCheck', PACKAGE = 'feature2', abyte))
-}
-
-inputStringByteCheck <- function(abyte_string) {
-    invisible(.Call('feature2_inputStringByteCheck', PACKAGE = 'feature2', abyte_string))
-}
-
-send_byte_string <- function(data_byte_as_string) {
-    invisible(.Call('feature2_send_byte_string', PACKAGE = 'feature2', data_byte_as_string))
-}
-
-ftdi_event <- function() {
-    invisible(.Call('feature2_ftdi_event', PACKAGE = 'feature2'))
+event <- function(init_swtch) {
+    .Call('feature2_event', PACKAGE = 'feature2', init_swtch)
 }
 
 GaussianBlur2D <- function(dmat, bitdepth, num_rows_kernel, num_cols_kernel, sigmaX = 0.0, sigmaY = 0.0, borderType = "default") {
